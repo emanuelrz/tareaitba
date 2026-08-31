@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html class="dark" lang="es" data-theme="cyber-slate">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>DevForge Academy - Plataforma de Aprendizaje Frontend</title>
+    
+    <!-- Fonts & Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "var(--bg-color)",
+                        "on-background": "var(--on-bg-color)",
+                        "surface": "var(--surface-color)",
+                        "on-surface": "var(--on-surface)",
+                        "on-surface-variant": "var(--on-surface-variant)",
+                        "surface-variant": "var(--surface-variant)",
+                        "surface-container": "var(--surface-container)",
+                        "surface-container-high": "var(--surface-container-high)",
+                        "surface-container-highest": "var(--surface-container-highest)",
+                        "surface-container-low": "var(--surface-container-low)",
+                        "surface-container-lowest": "var(--surface-container-lowest)",
+                        "outline": "var(--outline)",
+                        "outline-variant": "var(--outline-variant)",
+                        "primary": "var(--primary-color)",
+                        "on-primary": "var(--on-primary)",
+                        "primary-container": "var(--primary-container)",
+                        "on-primary-container": "var(--on-primary-container)",
+                        "secondary": "var(--secondary-color)",
+                        "on-secondary": "var(--on-secondary)",
+                        "secondary-container": "var(--secondary-container)",
+                        "on-secondary-container": "var(--on-secondary-container)",
+                        "tertiary": "var(--tertiary-color)",
+                        "on-tertiary": "var(--on-tertiary)",
+                        "tertiary-container": "var(--tertiary-container)",
+                        "on-tertiary-container": "var(--on-tertiary-container)",
+                        "neo-mint": "#00ff9d",
+                        "cobalt": "#00d2ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "4px"
+                    },
+                    fontFamily: {
+                        "headline-md": ["Space Grotesk", "sans-serif"],
+                        "code-md": ["JetBrains Mono", "monospace"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Space Grotesk", "sans-serif"],
+                        "display-lg-mobile": ["Space Grotesk", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "code-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Base Dynamic CSS Tokens */
+        :root {
+            /* Light Theme Defaults */
+            --bg-color: #f7f6fa;
+            --on-bg-color: #17151c;
+            --surface-color: #ffffff;
+            --on-surface: #17151c;
+            --on-surface-variant: #49454f;
+            --surface-variant: #e8e3f0;
+            --surface-container: #ede8f5;
+            --surface-container-high: #e4dfec;
+            --surface-container-highest: #dcd7e4;
+            --surface-container-low: #f3eff9;
+            --surface-container-lowest: #ffffff;
+            --outline: #7a7585;
+            --outline-variant: #cac3d4;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(202, 195, 212, 0.6);
+            
+            /* Palettes in Light Mode */
+            --primary-color: #654ea3;
+            --on-primary: #ffffff;
+            --primary-container: #e9ddff;
+            --on-primary-container: #22005d;
+            --secondary-color: #625b71;
+            --on-secondary: #ffffff;
+            --secondary-container: #e8def8;
+            --on-secondary-container: #1d192b;
+            --tertiary-color: #8b6b00;
+            --on-tertiary: #ffffff;
+            --tertiary-container: #ffe08a;
+            --on-tertiary-container: #2c2000;
+            --cert-bg: #111018;
+        }
+
+        html.dark {
+            /* Dark Theme Base Tokens */
+            --bg-color: #141218;
+            --on-bg-color: #e6e0e9;
+            --surface-color: #141218;
+            --on-surface: #e6e0e9;
+            --on-surface-variant: #cbc4d2;
+            --surface-variant: #36343a;
+            --surface-container: #211f24;
+            --surface-container-high: #2b292f;
+            --surface-container-highest: #36343a;
+            --surface-container-low: #1d1b20;
+            --surface-container-lowest: #0f0d13;
+            --outline: #948e9c;
+            --outline-variant: #494551;
+            --glass-bg: rgba(33, 31, 36, 0.75);
+            --glass-border: rgba(73, 69, 81, 0.35);
+
+            /* Default Cyber Slate Dark */
+            --primary-color: #cfbcff;
+            --on-primary: #381e72;
+            --primary-container: #6750a4;
+            --on-primary-container: #e0d2ff;
+            --secondary-color: #cdc0e9;
+            --on-secondary: #342b4b;
+            --secondary-container: #4d4465;
+            --on-secondary-container: #bfb2da;
+            --tertiary-color: #e7c365;
+            --on-tertiary: #3e2e00;
+            --tertiary-container: #c9a74d;
+            --on-tertiary-container: #503d00;
+            --cert-bg: #0a0a0f;
+        }
+
+        /* Palette Variants - Dark */
+        html.dark[data-theme="neo-mint"] {
+            --primary-color: #00ff9d;
+            --on-primary: #003822;
+            --primary-container: #005234;
+            --on-primary-container: #5effb8;
+        }
+        html.dark[data-theme="cobalt-pro"] {
+            --primary-color: #00d2ff;
+            --on-primary: #003544;
+            --primary-container: #004e63;
+            --on-primary-container: #bfeaff;
+        }
+        html.dark[data-theme="amber-sunset"] {
+            --primary-color: #e7c365;
+            --on-primary: #3e2e00;
+            --primary-container: #594300;
+            --on-primary-container: #ffe08a;
+        }
+
+        /* Palette Variants - Light */
+        html:not(.dark)[data-theme="neo-mint"] {
+            --primary-color: #008751;
+            --on-primary: #ffffff;
+            --primary-container: #a2f7cf;
+            --on-primary-container: #002111;
+        }
+        html:not(.dark)[data-theme="cobalt-pro"] {
+            --primary-color: #006884;
+            --on-primary: #ffffff;
+            --primary-container: #bde9ff;
+            --on-primary-container: #001f2a;
+        }
+        html:not(.dark)[data-theme="amber-sunset"] {
+            --primary-color: #795900;
+            --on-primary: #ffffff;
+            --primary-container: #ffe08a;
+            --on-primary-container: #251a00;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color);
+            color: var(--on-bg-color);
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .cert-glow {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* View Switching System */
+        .app-view {
+            display: none !important;
+            opacity: 0;
+            transition: opacity 0.2s ease-out;
+        }
+
+        .app-view.active-view {
+            display: block !important;
+            opacity: 1;
+        }
+
+        /* Test Step Switching */
+        .step-container {
+            display: none !important;
+            opacity: 0;
+            transition: opacity 0.2s ease-out;
+        }
+
+        .step-container.active {
+            display: block !important;
+            opacity: 1;
+        }
+
+        .option-card {
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+        }
+
+        .option-card:hover:not(.selected):not(.correct):not(.incorrect) {
+            transform: translateY(-2px);
+            background: var(--surface-container-high);
+            border-color: var(--primary-color);
+        }
+
+        .option-card.selected {
+            border-color: #00ff9d !important;
+            background: rgba(0, 255, 157, 0.12) !important;
+        }
+
+        @media print {
+            nav, footer, .no-print, .action-toolbar {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .certificate-frame {
+                box-shadow: none !important;
+                border: 2px solid #333 !important;
+                width: 100% !important;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-primary selection:text-on-primary">
+
+    <!-- Global TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 max-w-container-max mx-auto bg-surface/90 backdrop-blur-md border-b border-outline-variant/20 shadow-sm left-0 right-0" id="globalNav">
+        <div class="flex items-center gap-6 md:gap-stack-lg">
+            <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left group">
+                <img alt="DevForge Academy" class="h-8 w-8 object-contain transition-transform group-hover:rotate-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtH3cf8fWVbahFL8z1Tr-zjGs4NLurJguZ4SG7nuK-alhWDwyo4CxGcmiCr3J-karbtxINIZwIPynqW9QXFQkqR3lOkBnlW-a1jpYon_x9zn9612ssMWqYbFVU2fH2AVbv7CwdRe76ILPLKUgKM3oOmCjB1xUhz5GZc6pAtSRBD4v4TmdO55NKqiMhsrgXwHG5SbVS_qULtPZTbH8ZqkDd6GRpimoA3nwNxi3jf71tqF29vBidOEJ8">
+                <span class="font-headline-md text-headline-md font-bold text-primary tracking-tighter hidden sm:block">DevForge Academy</span>
+            </button>
+            
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-2">
+                <button id="nav-btn-home" onclick="navigateTo('home')" class="nav-item font-body-md text-body-md px-3 py-1.5 rounded-lg text-primary border-b-2 border-primary font-medium transition-all">
+                    Cursos
+                </button>
+                <button id="nav-btn-test" onclick="navigateTo('test')" class="nav-item font-body-md text-body-md px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 transition-all">
+                    Tests Online
+                </button>
+                <button id="nav-btn-certificate" onclick="navigateTo('certificate')" class="nav-item font-body-md text-body-md px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 transition-all">
+                    Certificados
+                </button>
+                <button onclick="openAboutModal()" class="font-body-md text-body-md px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 transition-all">
+                    Sobre Nosotros
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Action Controls -->
+        <div class="flex items-center gap-3">
+            <!-- Theme Palette Toggle Button -->
+            <div class="relative">
+                <button onclick="toggleThemeMenu()" title="Cambiar paleta de colores" class="p-2 rounded-full hover:bg-surface-variant/50 text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+                    <span class="material-symbols-outlined" data-icon="palette">palette</span>
+                </button>
+                
+                <!-- Palette Dropdown -->
+                <div id="paletteMenu" class="hidden absolute right-0 mt-2 w-48 bg-surface-container-high border border-outline-variant/30 rounded-xl shadow-2xl p-2 z-50 backdrop-blur-lg">
+                    <p class="font-label-sm text-[11px] text-on-surface-variant uppercase px-2 py-1 tracking-wider">Paleta de color</p>
+                    <button onclick="setTheme('cyber-slate')" class="w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between hover:bg-surface-variant transition-colors">
+                        <span>Cyber Slate</span>
+                        <span class="w-3 h-3 rounded-full bg-[#654ea3]"></span>
+                    </button>
+                    <button onclick="setTheme('neo-mint')" class="w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between hover:bg-surface-variant transition-colors">
+                        <span>Neo Mint</span>
+                        <span class="w-3 h-3 rounded-full bg-[#00ff9d]"></span>
+                    </button>
+                    <button onclick="setTheme('cobalt-pro')" class="w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between hover:bg-surface-variant transition-colors">
+                        <span>Cobalt Pro</span>
+                        <span class="w-3 h-3 rounded-full bg-[#00d2ff]"></span>
+                    </button>
+                    <button onclick="setTheme('amber-sunset')" class="w-full text-left px-3 py-2 rounded-lg text-sm flex items-center justify-between hover:bg-surface-variant transition-colors">
+                        <span>Amber Sunset</span>
+                        <span class="w-3 h-3 rounded-full bg-[#e7c365]"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dark / Light Mode Toggle Button -->
+            <button onclick="toggleDarkMode()" id="darkModeToggleBtn" title="Alternar modo claro / oscuro" class="p-2 rounded-full hover:bg-surface-variant/50 text-on-surface-variant hover:text-primary transition-colors active:scale-95">
+                <span id="darkIcon" class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+            </button>
+
+            <!-- User Avatar & Profile Quick Trigger -->
+            <button onclick="openProfileModal()" class="h-8 w-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant/30 flex items-center justify-center ml-1 ring-2 ring-primary/20 hover:ring-primary transition-all">
+                <img class="w-full h-full object-cover" alt="Perfil del Usuario" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClEFxcPfPjSRBYe7_9tmwFXbrjbek0M3oRw2TQm7pWiVnDtdHGD9q3ErIRdMnDV5Y2PymSyGIxoWv3rz0mxZi-ZclBcmvv7dwcWX4B2RY98eyO__mnBbWPoGtQ69MZlmQ3p_N-F9-mu4ZLcYwxueq-2YTugj9ibqX_E65UUYXm3Qqq9tRb_Ak8wFbuZ_GromdZIilX_qVIcNV1x6C5neQOhCf3m30pygtdBNAOjlxbR9QEmc5bwLjk">
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN APP CONTAINER -->
+    <main class="flex-1 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-20 pb-12">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: INICIO / DASHBOARD / CATÁLOGO      -->
+        <!-- ========================================== -->
+        <section id="view-home" class="app-view active-view flex flex-col gap-10 md:gap-14">
+            <!-- Hero Section -->
+            <div class="flex flex-col items-center justify-center text-center py-12 md:py-16 px-6 gap-stack-md relative overflow-hidden rounded-2xl glass-panel">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-neo-mint/5 pointer-events-none"></div>
+                <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface relative z-10 max-w-3xl leading-tight">
+                    Impulsa tu Carrera como Desarrollador Frontend
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-stack-sm relative z-10">
+                    Domina las tecnologías web modernas. Prepárate con cursos especializados, rinde pruebas reales con evaluación instantánea y obtén certificaciones respaldadas por la industria.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-stack-md mt-stack-md relative z-10 w-full sm:w-auto justify-center">
+                    <button onclick="startSpecificTest('javascript')" class="bg-primary text-on-primary font-label-sm text-label-sm px-7 py-3.5 rounded-lg hover:brightness-110 hover:-translate-y-0.5 transition-all shadow-md flex items-center justify-center gap-2 font-semibold">
+                        <span class="material-symbols-outlined text-lg" data-icon="play_arrow">play_arrow</span>
+                        Rendir Prueba en Línea
+                    </button>
+                    <button onclick="scrollToCourses()" class="border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3.5 rounded-lg hover:bg-surface-variant/50 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-lg" data-icon="explore">explore</span>
+                        Explorar Cursos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Metrics Bento -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:bg-surface-container-high transition-all hover:-translate-y-1">
+                    <div class="h-12 w-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <span class="material-symbols-outlined text-2xl" data-icon="library_books">library_books</span>
+                    </div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-on-surface">6 Cursos Especializados</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Rutas de aprendizaje enfocadas</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:bg-surface-container-high transition-all hover:-translate-y-1">
+                    <div class="h-12 w-12 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <span class="material-symbols-outlined text-2xl" data-icon="shuffle">shuffle</span>
+                    </div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-on-surface">Pruebas Aleatorias</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Evalúa tu conocimiento real</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:bg-surface-container-high transition-all hover:-translate-y-1">
+                    <div class="h-12 w-12 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <span class="material-symbols-outlined text-2xl" data-icon="workspace_premium">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h3 class="font-headline-md text-headline-md text-on-surface">Certificación Instantánea</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Valida tus habilidades al instante</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Catalog -->
+            <div id="course-catalog-section" class="flex flex-col gap-stack-md scroll-mt-20 mt-6 md:mt-10">
+                <div class="flex justify-between items-end border-b border-outline-variant/20 pb-stack-sm">
+                    <div>
+                        <h2 class="font-headline-md text-headline-md text-on-surface">Catálogo de Cursos & Certificaciones</h2>
+                        <p class="font-body-md text-sm text-on-surface-variant">Selecciona un curso para ver su temario o rendir directamente la evaluación.</p>
+                    </div>
+                    <button onclick="scrollToCourses()" class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1">
+                        Todos los cursos <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                    <!-- Card 1: JS -->
+                    <div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-outline-variant/20">
+                        <div class="h-40 bg-surface-container-highest relative overflow-hidden">
+                            <img class="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" alt="JavaScript Moderno" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUzEdxidU8U4t8Cbpsx1Xz5SXinoInBIMFkBnZtohAxj2ykbG_27JXgBpe8x4TYwXkuDeRpmoTqcS8_CO0cL8YSzt-29kEKvM7FnxX3AwWQmXm0Pz8TMSMwtAfGx6alVtIhTYQqWSO75bfOY4rsONWniKTo3j7_GSlMXrr6QlHnTpInHcpU_HjFJ9mW1jT-Dmd0Ln3D8klDhLquky126aVStSC9UX4mBy68puCs8Q-yU_q3niIoGsJ">
+                            <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-primary border border-outline-variant/30">
+                                Frontend Core
+                            </div>
+                        </div>
+                        <div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">JavaScript Moderno</h3>
+                            <div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant text-sm">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 40h</span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt">signal_cellular_alt</span> Intermedio</span>
+                            </div>
+                            <div class="mt-auto pt-stack-sm flex items-center justify-between">
+                                <span class="font-code-md text-code-md text-tertiary text-xs">es6+ / dom / async</span>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openCourseDetails('js')" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+                                        Detalles <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+                                    </button>
+                                    <button onclick="startSpecificTest('javascript')" class="px-3 py-1 rounded bg-primary/20 text-primary hover:bg-primary hover:text-on-primary text-xs font-semibold transition-all">
+                                        Test
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: HTML5 -->
+                    <div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-outline-variant/20">
+                        <div class="h-40 bg-surface-container-highest relative overflow-hidden">
+                            <img class="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" alt="HTML5 Semántico" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkpdx74Z5xVqbCr-nD8CEF35EQxgfoF1MdKboz_FiV2_F12HhmDGFGBn3vluf2tOsblK1X9gPXrd0KZJtQSsev1_Xn0Ak4cNAUhMivrnVidgsV387TQGcVsVu76QCplgyLgeNBZsNTQygGWbIuoBbB1IDiHPXyzxFxcisc9S8WZG5bMM4nG45CrctaQq-yGoBZAJfI9pSIVsocTNkUsmpmE9j_zLPyC-JAyp574yKDxcfOaU_P0m-n">
+                            <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-primary border border-outline-variant/30">
+                                Frontend Core
+                            </div>
+                        </div>
+                        <div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">HTML5 Semántico</h3>
+                            <div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant text-sm">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 20h</span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt_1_bar">signal_cellular_alt_1_bar</span> Principiante</span>
+                            </div>
+                            <div class="mt-auto pt-stack-sm flex items-center justify-between">
+                                <span class="font-code-md text-code-md text-tertiary text-xs">a11y / seo / forms</span>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openCourseDetails('html')" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+                                        Detalles <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+                                    </button>
+                                    <button onclick="startSpecificTest('html5')" class="px-3 py-1 rounded bg-primary/20 text-primary hover:bg-primary hover:text-on-primary text-xs font-semibold transition-all">
+                                        Test
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: CSS3 -->
+                    <div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-outline-variant/20">
+                        <div class="h-40 bg-surface-container-highest relative overflow-hidden">
+                            <img class="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" alt="CSS3 Avanzado" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCMw90tYqy_Xrrk8cUGlIVxDDSxgoMKQeh_k98EOAl_kfSdwM5rY1r7g50QL3cXTD3nTBLx1vgoK5wqNaudgspAKWkmZ0dXHMU5MoCUvEwFW2HmDINPY1js3NSC_bMu4Jym41ay68hydZtDTPYEp45KSDHlkKS7diWoU6GBq0c_baHRZSFqlrM6vffw9MrmoyBIQsf75kZ-PbaV9ubvbxympv5dujU2v2BJb-0hmNK6zvRmzU32pp9">
+                            <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-primary border border-outline-variant/30">
+                                Frontend Design
+                            </div>
+                        </div>
+                        <div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">CSS3 Avanzado</h3>
+                            <div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant text-sm">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 35h</span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt">signal_cellular_alt</span> Intermedio</span>
+                            </div>
+                            <div class="mt-auto pt-stack-sm flex items-center justify-between">
+                                <span class="font-code-md text-code-md text-tertiary text-xs">flex / grid / anim</span>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openCourseDetails('css')" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+                                        Detalles <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+                                    </button>
+                                    <button onclick="startSpecificTest('css3')" class="px-3 py-1 rounded bg-primary/20 text-primary hover:bg-primary hover:text-on-primary text-xs font-semibold transition-all">
+                                        Test
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: SQL -->
+                    <div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-outline-variant/20">
+                        <div class="h-40 bg-surface-container-highest relative overflow-hidden">
+                            <img class="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" alt="Fundamentos SQL" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA86gNM4cEzNlYtPg7QfN6equQdRgzwCrZVeyq98CDutAcnOtQhlOrb5u1FxS-C_EQXNWQr08it7spELrBwIHRJPD-aGaqARB0qXkOkwG2bFtMvwdI8mACztE71iyGvnHJkooGHQkCPbOdmDR5QD4aFKt_vIFUoaWsn6mZIXEQm12bu-QXir2lRrTUGlyiEI0Dcc0py1QZ15fBPwiq4_2W3tDmH2L-LvAIRe2o0IOojwOsipqn1oscc">
+                            <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-secondary border border-outline-variant/30">
+                                Backend Intro
+                            </div>
+                        </div>
+                        <div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">Fundamentos SQL</h3>
+                            <div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant text-sm">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 25h</span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt_2_bar">signal_cellular_alt_2_bar</span> Principiante</span>
+                            </div>
+                            <div class="mt-auto pt-stack-sm flex items-center justify-between">
+                                <span class="font-code-md text-code-md text-tertiary text-xs">queries / joins / views</span>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openCourseDetails('sql')" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+                                        Detalles <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+                                    </button>
+                                    <button onclick="startSpecificTest('sql')" class="px-3 py-1 rounded bg-secondary/20 text-secondary hover:bg-secondary hover:text-on-secondary text-xs font-semibold transition-all">
+                                        Test
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: NoSQL -->
+                    <div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-outline-variant/20">
+                        <div class="h-40 bg-surface-container-highest relative overflow-hidden">
+                            <img class="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" alt="Arquitectura NoSQL" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV0f3wWdr_W0JM8FgkDV7JyaNunI5YvbR0K6KT3T5pqGLQx_Nw4svzBv-X0kGVZh0eKdn0adM4qDpqWKvxRir0u1q3Z9JIHdmO0n2WgBWtqC0_1BB3jkaUpWrDH2XdbufxzyPgZjGqIIdfOBzqOTXSfHV3jVVpZieFPeGyILSBJQ6-ddBuF_albJo3acfUoAPdysyxQLdtJeu_jiz93xu3F2SFAKXBDhdWK-M2y3ckZhDpgmMc3vtB">
+                            <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-secondary border border-outline-variant/30">
+                                Backend Intro
+                            </div>
+                        </div>
+                        <div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">Arquitectura NoSQL</h3>
+                            <div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant text-sm">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 30h</span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt">signal_cellular_alt</span> Intermedio</span>
+                            </div>
+                            <div class="mt-auto pt-stack-sm flex items-center justify-between">
+                                <span class="font-code-md text-code-md text-tertiary text-xs">docs / mongo / redis</span>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openCourseDetails('nosql')" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+                                        Detalles <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+                                    </button>
+                                    <button onclick="startSpecificTest('nosql')" class="px-3 py-1 rounded bg-secondary/20 text-secondary hover:bg-secondary hover:text-on-secondary text-xs font-semibold transition-all">
+                                        Test
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Agile -->
+                    <div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-outline-variant/20">
+                        <div class="h-40 bg-surface-container-highest relative overflow-hidden">
+                            <img class="w-full h-full object-cover opacity-85 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500" alt="Agile & Scrum" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMwiprmzmfW5Tk1geL0_XZiZYyi24qzqXyQm-kHUWrZtcwd0UpmEVP3SMx4t9x4fzGer4SIrsLEylCAxzmNksdnaK2pmxSYvXcnX2tOsq0YVEUxnEmLZbOO6mS9PK23MGgWm76yQCn212YR4Xpz7AWbfV7JfHKVP76x0jbL4woxQw0vy024kGtqzT_I19h2eNFbu_05z1m_9LqwJyE-bU5JRNg6GpBOMmDp05dGrtgIj-YyzVx2j-x">
+                            <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-tertiary border border-outline-variant/30">
+                                Methodologies
+                            </div>
+                        </div>
+                        <div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+                            <h3 class="font-headline-md text-headline-md text-on-surface">Agile & Scrum</h3>
+                            <div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant text-sm">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 15h</span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt_3_bar">signal_cellular_alt_3_bar</span> Avanzado</span>
+                            </div>
+                            <div class="mt-auto pt-stack-sm flex items-center justify-between">
+                                <span class="font-code-md text-code-md text-tertiary text-xs">sprints / kanban / flow</span>
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openCourseDetails('agile')" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+                                        Detalles <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+                                    </button>
+                                    <button onclick="startSpecificTest('agile')" class="px-3 py-1 rounded bg-tertiary/20 text-tertiary hover:bg-tertiary hover:text-on-tertiary text-xs font-semibold transition-all">
+                                        Test
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: MÓDULO DE PRUEBA EN LÍNEA          -->
+        <!-- ========================================== -->
+        <section id="view-test" class="app-view">
+
+            <!-- Test Step 1: Technology Selection -->
+            <div id="test-step-1" class="step-container active max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h1 class="font-display-lg-mobile md:font-display-lg text-2xl md:text-3xl font-bold text-on-surface mb-2">
+                        Selecciona tu tecnología
+                    </h1>
+                    <p class="font-body-lg text-body-md text-on-surface-variant max-w-xl mx-auto">
+                        Elige una evaluación técnica para poner a prueba tus habilidades frontend y calificar para tu certificación oficial.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                    <!-- HTML5 Option -->
+                    <div onclick="initQuiz('html5')" class="glass-panel rounded-xl p-stack-lg flex flex-col items-center gap-stack-md hover:-translate-y-2 transition-transform duration-300 text-left w-full group hover:shadow-lg border border-outline-variant/20 hover:border-primary/50 cursor-pointer">
+                        <div class="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" data-icon="html">html</span>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-headline-md text-headline-md text-on-surface mb-1">HTML5</h3>
+                            <p class="font-body-md text-sm text-on-surface-variant">Marcado semántico, accesibilidad (a11y) y APIs web modernas.</p>
+                        </div>
+                        <div class="mt-auto pt-stack-md w-full flex justify-between items-center text-on-surface-variant text-xs border-t border-outline-variant/20">
+                            <span class="font-label-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 10 mins</span>
+                            <span class="font-label-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="format_list_numbered">format_list_numbered</span> 5 Preguntas</span>
+                        </div>
+                    </div>
+
+                    <!-- CSS3 Option -->
+                    <div onclick="initQuiz('css3')" class="glass-panel rounded-xl p-stack-lg flex flex-col items-center gap-stack-md hover:-translate-y-2 transition-transform duration-300 text-left w-full group hover:shadow-lg border border-outline-variant/20 hover:border-primary/50 cursor-pointer">
+                        <div class="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" data-icon="css">css</span>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-headline-md text-headline-md text-on-surface mb-1">CSS3</h3>
+                            <p class="font-body-md text-sm text-on-surface-variant">Grid, Flexbox, animaciones clave y arquitectura responsive.</p>
+                        </div>
+                        <div class="mt-auto pt-stack-md w-full flex justify-between items-center text-on-surface-variant text-xs border-t border-outline-variant/20">
+                            <span class="font-label-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 10 mins</span>
+                            <span class="font-label-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="format_list_numbered">format_list_numbered</span> 5 Preguntas</span>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript Option -->
+                    <div onclick="initQuiz('javascript')" class="glass-panel rounded-xl p-stack-lg flex flex-col items-center gap-stack-md hover:-translate-y-2 transition-transform duration-300 text-left w-full group hover:shadow-lg border border-outline-variant/20 hover:border-primary/50 cursor-pointer relative overflow-hidden">
+                        <div class="absolute top-2 right-2 bg-primary/20 text-primary font-label-sm text-[10px] px-2 py-0.5 rounded font-semibold uppercase tracking-wider">Popular</div>
+                        <div class="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                            <span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors" data-icon="javascript">javascript</span>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="font-headline-md text-headline-md text-on-surface mb-1">JavaScript</h3>
+                            <p class="font-body-md text-sm text-on-surface-variant">ES6+, asincronía, event loop, promesas y manipulación del DOM.</p>
+                        </div>
+                        <div class="mt-auto pt-stack-md w-full flex justify-between items-center text-on-surface-variant text-xs border-t border-outline-variant/20">
+                            <span class="font-label-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 12 mins</span>
+                            <span class="font-label-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="format_list_numbered">format_list_numbered</span> 5 Preguntas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button onclick="navigateTo('home')" class="text-on-surface-variant hover:text-on-surface font-label-sm text-sm inline-flex items-center gap-1 transition-colors">
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+                        Volver al inicio
+                    </button>
+                </div>
+            </div>
+
+            <!-- Test Step 2: Live Quiz Interface -->
+            <div id="test-step-2" class="step-container max-w-3xl mx-auto">
+                <!-- Quiz Header Bar (Status, Timer, Progress) -->
+                <div class="glass-panel rounded-xl p-stack-md mb-stack-sm flex justify-between items-center sticky top-20 z-40 shadow-lg border border-outline-variant/30">
+                    <div class="flex items-center gap-3">
+                        <div id="quiz-tech-icon" class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary font-bold text-lg">
+                            <span class="material-symbols-outlined" data-icon="javascript">javascript</span>
+                        </div>
+                        <div>
+                            <h2 id="quiz-tech-title" class="font-headline-md text-on-surface text-base font-semibold leading-tight">Evaluación de JavaScript</h2>
+                            <p id="quiz-progress-text" class="font-label-sm text-xs text-on-surface-variant">Pregunta 1 de 5</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 md:gap-gutter">
+                        <div class="text-right">
+                            <span class="font-label-sm text-[11px] text-on-surface-variant block">Tiempo restante</span>
+                            <span id="quiz-timer" class="font-code-md text-sm text-primary font-bold flex items-center gap-1 justify-end">
+                                <span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 10:00
+                            </span>
+                        </div>
+                        <div class="h-8 w-px bg-outline-variant/30 hidden sm:block"></div>
+                        <div class="text-right hidden sm:block">
+                            <span class="font-label-sm text-[11px] text-on-surface-variant block">Puntaje acumulado</span>
+                            <span id="quiz-score-badge" class="font-code-md text-sm text-primary font-bold">0 pts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Bar Line -->
+                <div class="w-full bg-surface-container h-1.5 rounded-full mb-6 overflow-hidden">
+                    <div id="quiz-progress-fill" class="bg-primary h-full transition-all duration-300" style="width: 20%;"></div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="glass-panel rounded-2xl p-6 md:p-8 mb-6 border border-outline-variant/30 shadow-xl">
+                    <div class="mb-6">
+                        <span id="question-category-tag" class="inline-block px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-xs mb-3 border border-outline-variant/20">
+                            JS Asíncrono
+                        </span>
+                        <h3 id="question-text" class="font-headline-md text-xl md:text-2xl text-on-surface font-semibold leading-relaxed">
+                            ¿Cuál es el resultado de la ejecución del siguiente fragmento de código?
+                        </h3>
+
+                        <!-- Code Block Snippet (Rendered if question has code) -->
+                        <div id="question-code-wrapper" class="mt-4 rounded-xl overflow-hidden border border-outline-variant/25 bg-[#0f0d13] text-white">
+                            <div class="flex justify-between items-center px-4 py-2 bg-surface-container/80 border-b border-outline-variant/20 text-gray-300">
+                                <span id="code-filename" class="font-code-md text-xs">example.js</span>
+                                <button onclick="copyQuestionCode()" title="Copiar código" class="text-gray-300 hover:text-white transition-colors flex items-center gap-1 text-xs">
+                                    <span class="material-symbols-outlined text-xs" data-icon="content_copy">content_copy</span>
+                                    <span>Copiar</span>
+                                </button>
+                            </div>
+                            <pre class="p-4 font-code-md text-sm overflow-x-auto text-emerald-400"><code id="question-code-content">console.log('Start');
+setTimeout(() => {
+  console.log('Timeout');
+}, 0);
+Promise.resolve().then(() => console.log('Promise'));
+console.log('End');</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Question Options List -->
+                    <div id="quiz-options-list" class="flex flex-col gap-3">
+                        <!-- Options generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Action Footer Navigation -->
+                <div class="flex justify-between items-center">
+                    <button onclick="reportIssue()" class="px-4 py-2.5 rounded-lg border border-outline-variant/40 text-on-surface-variant font-label-sm text-xs hover:bg-surface-container transition-colors flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm" data-icon="flag">flag</span>
+                        Reportar pregunta
+                    </button>
+
+                    <button id="btn-next-question" onclick="nextQuestion()" class="px-8 py-3 rounded-lg bg-primary text-on-primary font-label-sm text-sm font-bold hover:brightness-110 transition-all flex items-center gap-2 active:scale-95 shadow-md">
+                        <span>Siguiente</span>
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Test Step 3: Assessment Results Screen -->
+            <div id="test-step-3" class="step-container max-w-2xl mx-auto text-center">
+                <div class="glass-panel rounded-2xl p-6 md:p-10 relative overflow-hidden border border-outline-variant/30 shadow-2xl">
+                    <div class="relative z-10">
+                        <div id="result-icon-container" class="w-16 h-16 mx-auto bg-primary rounded-2xl flex items-center justify-center mb-4 text-on-primary shadow-lg">
+                            <span class="material-symbols-outlined text-4xl font-bold" data-icon="verified">verified</span>
+                        </div>
+
+                        <h2 id="result-title" class="font-display-lg-mobile md:font-display-lg text-2xl md:text-3xl font-bold text-on-surface mb-2">
+                            ¡Evaluación Completada!
+                        </h2>
+
+                        <div id="result-status-badge" class="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-green-500/15 border border-green-500/30 text-green-600 dark:text-green-400 font-label-sm text-sm mb-5 font-semibold">
+                            <span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            <span id="result-status-text">Aprobado con Distinción</span>
+                        </div>
+
+                        <!-- Metrics Grid -->
+                        <div class="grid grid-cols-2 gap-4 max-w-sm mx-auto mb-5">
+                            <div class="bg-surface-container rounded-xl p-3 border border-outline-variant/20 text-center">
+                                <span class="block font-label-sm text-xs text-on-surface-variant mb-1">Puntuación Final</span>
+                                <span id="result-score-percent" class="font-headline-md text-2xl font-bold text-on-surface">100%</span>
+                            </div>
+                            <div class="bg-surface-container rounded-xl p-3 border border-outline-variant/20 text-center">
+                                <span class="block font-label-sm text-xs text-on-surface-variant mb-1">Tiempo Utilizado</span>
+                                <span id="result-time-taken" class="font-headline-md text-2xl font-bold text-on-surface">02:15</span>
+                            </div>
+                        </div>
+
+                        <p id="result-feedback-message" class="font-body-md text-sm text-on-surface-variant mb-6 max-w-md mx-auto leading-relaxed">
+                            ¡Excelente desempeño! Has demostrado un sólido dominio de los conceptos clave. Eres apto para recibir y descargar tu certificado oficial con validez profesional.
+                        </p>
+
+                        <!-- Actions -->
+                        <div class="flex flex-col sm:flex-row justify-center gap-3">
+                            <button onclick="shareResults()" class="px-6 py-3 rounded-lg border border-outline-variant/50 text-on-surface font-label-sm text-sm hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+                                Compartir
+                            </button>
+                            <button onclick="generateAndOpenCertificate()" class="px-8 py-3 rounded-lg bg-primary text-on-primary font-label-sm text-sm font-bold hover:brightness-110 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md">
+                                <span class="material-symbols-outlined text-base" data-icon="workspace_premium">workspace_premium</span>
+                                Ver y Generar Certificado
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <button onclick="goToTestStep(1)" class="text-on-surface-variant hover:text-on-surface font-label-sm text-sm transition-colors inline-flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+                        Rendir otra prueba
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: VISTA PREVIA DEL CERTIFICADO       -->
+        <!-- ========================================== -->
+        <section id="view-certificate" class="app-view">
+            <div class="w-full max-w-5xl mx-auto flex flex-col items-center">
+                <!-- Certificate Header & Toolbar -->
+                <div class="w-full mb-4 flex flex-col md:flex-row justify-between items-start md:items-end gap-3">
+                    <div>
+                        <h1 class="font-display-lg-mobile md:font-display-lg text-2xl md:text-3xl font-bold text-on-surface">
+                            Certificado de Finalización
+                        </h1>
+                        <p class="font-body-md text-xs md:text-sm text-on-surface-variant">Consulta, personaliza y descarga tu credencial académica oficial.</p>
+                    </div>
+
+                    <!-- Toolbar Actions -->
+                    <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                        <button onclick="editCertificateName()" class="flex-1 md:flex-none flex items-center justify-center gap-1.5 border border-outline-variant/40 bg-surface-container text-on-surface font-label-sm text-xs px-4 py-2 rounded-lg hover:bg-surface-variant transition-all">
+                            <span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                            Editar Nombre
+                        </button>
+                        <button onclick="downloadOrPrintCertificate()" class="flex-1 md:flex-none flex items-center justify-center gap-1.5 bg-primary text-on-primary font-label-sm text-xs px-5 py-2 rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all font-semibold">
+                            <span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                            Descargar / Imprimir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Interactive Certificate Canvas/Frame (16:9 Aspect Ratio) -->
+                <div id="certificateContainer" class="certificate-frame relative w-full aspect-[16/10] md:aspect-video rounded-2xl overflow-hidden cert-glow p-2 md:p-3 border border-primary/30 shadow-2xl" style="background: var(--cert-bg);">
+                    <!-- Inner Certificate Border Frame -->
+                    <div class="w-full h-full border border-primary/30 rounded-xl relative overflow-hidden flex flex-col justify-between p-5 md:p-8 text-center text-white" style="background: var(--cert-bg);">
+                        
+                        <!-- Grid Pattern Background -->
+                        <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(#cfbcff 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
+                        
+                        <!-- Decorative Modern Corner Lines -->
+                        <div class="absolute top-0 left-0 w-20 md:w-32 h-20 md:h-32 border-t-2 border-l-2 border-[#00d2ff]/40 rounded-tl-xl pointer-events-none"></div>
+                        <div class="absolute bottom-0 right-0 w-20 md:w-32 h-20 md:h-32 border-b-2 border-r-2 border-[#00d2ff]/40 rounded-br-xl pointer-events-none"></div>
+                        <div class="absolute top-0 right-0 w-12 h-12 border-t border-r border-primary/20 pointer-events-none"></div>
+                        <div class="absolute bottom-0 left-0 w-12 h-12 border-b border-l border-primary/20 pointer-events-none"></div>
+
+                        <!-- Top: Institution Logo & Subtitle -->
+                        <div class="relative z-10 flex flex-col items-center gap-1.5">
+                            <div class="flex items-center gap-3">
+                                <img alt="DevForge Academy Logo" class="w-10 h-10 md:w-14 md:h-14 object-contain filter drop-shadow-[0_0_10px_rgba(207,188,255,0.4)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtH3cf8fWVbahFL8z1Tr-zjGs4NLurJguZ4SG7nuK-alhWDwyo4CxGcmiCr3J-karbtxINIZwIPynqW9QXFQkqR3lOkBnlW-a1jpYon_x9zn9612ssMWqYbFVU2fH2AVbv7CwdRe76ILPLKUgKM3oOmCjB1xUhz5GZc6pAtSRBD4v4TmdO55NKqiMhsrgXwHG5SbVS_qULtPZTbH8ZqkDd6GRpimoA3nwNxi3jf71tqF29vBidOEJ8">
+                                <div class="text-left">
+                                    <span class="font-headline-md text-sm md:text-lg font-bold text-white tracking-wider block">DEVFORGE ACADEMY</span>
+                                    <span class="font-label-sm text-[9px] md:text-xs text-[#cfbcff] tracking-widest uppercase">Frontend Engineering Institute</span>
+                                </div>
+                            </div>
+                            <div class="h-0.5 w-20 bg-gradient-to-r from-transparent via-primary/50 to-transparent my-0.5"></div>
+                            <h2 class="font-headline-md text-[11px] md:text-xs text-[#cfbcff] tracking-[0.25em] uppercase">Certificado de Excelencia Técnica</h2>
+                        </div>
+
+                        <!-- Middle: Student Recipient, Tech & Award Text -->
+                        <div class="relative z-10 flex flex-col items-center gap-1.5 md:gap-2.5 my-auto">
+                            <p class="font-body-md text-xs md:text-sm text-gray-300">Otorgado con distinción a:</p>
+                            <h3 id="cert-student-name" class="font-display-lg text-xl md:text-3xl lg:text-4xl text-white font-bold tracking-tight drop-shadow-sm">
+                                Alex Mercer
+                            </h3>
+                            <div class="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-[#00ff9d] to-transparent"></div>
+                            <p class="font-body-lg text-xs md:text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                                Por haber aprobado satisfactoriamente con honores la evaluación técnica integral en <span id="cert-tech-name" class="text-yellow-400 font-bold">JavaScript Moderno (ES6+)</span>.
+                            </p>
+                        </div>
+
+                        <!-- Bottom: Metadata, Verification ID & Signatures -->
+                        <div class="relative z-10 w-full flex justify-between items-end pt-3 border-t border-white/20 mt-1">
+                            <!-- Left: Verification Data -->
+                            <div class="text-left">
+                                <p class="font-code-md text-[9px] md:text-xs text-gray-400">ID: <span id="cert-id-code" class="text-[#cfbcff] font-semibold">DF-JS-8472-A9F</span></p>
+                                <p class="font-code-md text-[9px] md:text-xs text-gray-400">Emitido: <span id="cert-issue-date">24 Octubre 2024</span></p>
+                                <p class="font-code-md text-[9px] md:text-xs text-[#00ff9d] flex items-center gap-1 mt-0.5">
+                                    <span class="material-symbols-outlined text-xs" data-icon="verified">verified</span> Blockchain Verified
+                                </p>
+                            </div>
+
+                            <!-- Right: Instructor Signature -->
+                            <div class="flex flex-col items-center min-w-[110px] md:min-w-[160px]">
+                                <div class="font-headline-md text-sm md:text-base text-[#cfbcff] italic tracking-wider font-semibold font-serif mb-0.5">
+                                    Sarah J. Connor
+                                </div>
+                                <div class="w-full h-px bg-white/30 mb-0.5"></div>
+                                <p class="font-label-sm text-[7px] md:text-[9px] text-gray-400 uppercase tracking-widest">Lead Instructor & Tech Director</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Certificate Metadata Bento Details below -->
+                <div class="w-full mt-4 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                    <div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:-translate-y-0.5 transition-all border border-outline-variant/20">
+                        <div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                            <span class="material-symbols-outlined text-lg" data-icon="verified">verified</span>
+                        </div>
+                        <div>
+                            <p class="font-label-sm text-xs text-on-surface-variant">Estado Académico</p>
+                            <p class="font-body-md text-xs md:text-sm text-on-surface font-semibold">Verificado Oficialmente</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:-translate-y-0.5 transition-all border border-outline-variant/20">
+                        <div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                            <span class="material-symbols-outlined text-lg" data-icon="schedule">schedule</span>
+                        </div>
+                        <div>
+                            <p class="font-label-sm text-xs text-on-surface-variant">Carga Horaria Acreditada</p>
+                            <p class="font-body-md text-xs md:text-sm text-on-surface font-semibold">120 Horas Prácticas</p>
+                        </div>
+                    </div>
+                    <div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:-translate-y-0.5 transition-all border border-outline-variant/20">
+                        <div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                            <span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+                        </div>
+                        <div>
+                            <p class="font-label-sm text-xs text-on-surface-variant">Difusión de Logro</p>
+                            <div class="flex gap-2 mt-0.5">
+                                <button onclick="copyCertLink()" title="Copiar enlace directo" class="px-2 py-0.5 rounded bg-surface-container text-[11px] text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-xs" data-icon="link">link</span> Link
+                                </button>
+                                <button onclick="shareOnTwitter()" title="Compartir en X / Twitter" class="px-2 py-0.5 rounded bg-surface-container text-[11px] text-on-surface hover:text-primary transition-colors flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-xs" data-icon="send">send</span> Post
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <button onclick="navigateTo('home')" class="px-5 py-2 rounded-lg border border-outline-variant/40 text-on-surface-variant hover:text-on-surface text-xs transition-colors inline-flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-sm" data-icon="home">home</span>
+                        Volver a la Página Principal
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="w-full py-6 px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter bg-surface-container border-t border-outline-variant/10 mt-auto">
+        <div class="flex flex-col items-center md:items-start gap-1">
+            <span class="font-headline-md text-base text-on-surface font-bold">DevForge Academy</span>
+            <span class="font-label-sm text-[11px] text-secondary">© 2024 DevForge Academy. Engineered for Frontend Excellence.</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 text-xs">
+            <button onclick="openModal('privacy')" class="text-on-surface-variant hover:text-on-surface hover:underline transition-opacity">Política de privacidad</button>
+            <button onclick="openModal('terms')" class="text-on-surface-variant hover:text-on-surface hover:underline transition-opacity">Términos de servicio</button>
+            <button onclick="openModal('api')" class="text-on-surface-variant hover:text-on-surface hover:underline transition-opacity">API Docs</button>
+            <button onclick="openModal('support')" class="text-on-surface-variant hover:text-on-surface hover:underline transition-opacity">Contactar Soporte</button>
+        </div>
+    </footer>
+
+    <!-- MODAL: Course Details Modal -->
+    <div id="courseModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+        <div class="glass-panel w-full max-w-lg rounded-2xl p-6 relative border border-outline-variant/30 shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closeCourseModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface p-1 rounded-full hover:bg-surface-variant transition-colors">
+                <span class="material-symbols-outlined" data-icon="close">close</span>
+            </button>
+            <div id="courseModalContent">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: User Profile / Student Name Editor Modal -->
+    <div id="profileModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+        <div class="glass-panel w-full max-w-md rounded-2xl p-6 relative border border-outline-variant/30 shadow-2xl">
+            <button onclick="closeProfileModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface p-1 rounded-full hover:bg-surface-variant transition-colors">
+                <span class="material-symbols-outlined" data-icon="close">close</span>
+            </button>
+            <h3 class="font-headline-md text-xl text-on-surface font-bold mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+                Perfil del Estudiante
+            </h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="block font-label-sm text-xs text-on-surface-variant mb-1">Nombre Completo para Certificados</label>
+                    <input type="text" id="studentNameInput" value="Alex Mercer" class="w-full px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary text-sm font-medium">
+                </div>
+                <div>
+                    <label class="block font-label-sm text-xs text-on-surface-variant mb-1">Correo Electrónico Académico</label>
+                    <input type="email" value="alex.mercer@devforge.io" class="w-full px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface/70 text-sm" disabled>
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button onclick="closeProfileModal()" class="px-4 py-2 rounded-lg border border-outline-variant/40 text-xs text-on-surface-variant hover:bg-surface-variant transition-colors">Cancelar</button>
+                    <button onclick="saveStudentName()" class="px-5 py-2 rounded-lg bg-primary text-on-primary font-semibold text-xs hover:brightness-110 transition-colors">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Sobre Nosotros & Generic Info Modal -->
+    <div id="infoModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+        <div class="glass-panel w-full max-w-lg rounded-2xl p-6 md:p-8 relative border border-outline-variant/30 shadow-2xl">
+            <button onclick="closeInfoModal()" class="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface p-1 rounded-full hover:bg-surface-variant transition-colors">
+                <span class="material-symbols-outlined" data-icon="close">close</span>
+            </button>
+            <div id="infoModalBody">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-surface-container border border-outline-variant/40 text-on-surface px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+            <span id="toastIcon" class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+            <span id="toastMsg" class="font-body-md text-sm font-medium">Acción completada con éxito</span>
+        </div>
+    </div>
+
+    <!-- APPLICATION LOGIC & STATE ENGINE -->
+    <script>
+        // Global App State
+        const AppState = {
+            currentView: 'home',
+            studentName: 'Alex Mercer',
+            currentTheme: 'cyber-slate',
+            isDark: true,
+            
+            // Current Quiz State
+            selectedTech: 'javascript',
+            currentQuestionIndex: 0,
+            userAnswers: [],
+            quizStartTime: null,
+            timerInterval: null,
+            remainingSeconds: 600, // 10 mins default
+            
+            // Last Completed Assessment for Certificate
+            completedCert: {
+                studentName: 'Alex Mercer',
+                techName: 'JavaScript Moderno (ES6+)',
+                score: 100,
+                certId: 'DF-JS-8472-A9F',
+                date: new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })
+            }
+        };
+
+        // Course details dictionary
+        const CourseData = {
+            js: {
+                title: "JavaScript Moderno (ES6+)",
+                badge: "Frontend Core",
+                level: "Intermedio",
+                hours: "40 horas prácticas",
+                techKey: "javascript",
+                desc: "Domina el estándar ES6+, closures, prototipos, asincronía avanzada (Promesas, Async/Await, Event Loop), manipulación eficiente del DOM y patrones de diseño modernos para arquitectura web robusta.",
+                syllabus: ["Fundamentos de ECMAScript 6-2024", "Asincronía & Microtasks", "Manipulación del DOM y Event Bubbling", "Módulos y Bundling", "Testing unitario con Vitest"]
+            },
+            html: {
+                title: "HTML5 Semántico & Accesibilidad",
+                badge: "Frontend Core",
+                level: "Principiante - Intermedio",
+                hours: "20 horas prácticas",
+                techKey: "html5",
+                desc: "Aprende a estructurar aplicaciones web con la más alta fidelidad semántica, cumpliendo con los estándares de accesibilidad WCAG 2.1 AA/AAA y optimización SEO.",
+                syllabus: ["Jerarquía Semántica y Landmarks", "Atributos ARIA y Roles", "Formularios modernos y validaciones nativas", "APIs de almacenamiento y Canvas", "Optimización de Metadatos y OpenGraph"]
+            },
+            css: {
+                title: "CSS3 Avanzado & Responsive Design",
+                badge: "Frontend Design",
+                level: "Intermedio - Avanzado",
+                hours: "35 horas prácticas",
+                techKey: "css3",
+                desc: "Lleva tus habilidades de maquetación al límite con CSS Grid bidimensional, Flexbox profundo, variables CSS nativas, animaciones 60fps y Container Queries.",
+                syllabus: ["Flexbox y Layouts complejos", "CSS Grid y Subgrid", "Custom Properties (Variables) & Theming", "Transiciones & Keyframe Animations", "Container Queries y Media Queries modernas"]
+            },
+            sql: {
+                title: "Fundamentos SQL & Modelado Relacional",
+                badge: "Backend Intro",
+                level: "Principiante",
+                hours: "25 horas prácticas",
+                techKey: "sql",
+                desc: "Aprende el diseño de bases de datos relacionales, consultas complejas con JOINs múltiples, subconsultas, índices y transacciones ACID.",
+                syllabus: ["Modelado Entidad-Relación", "SELECT, WHERE, GROUP BY & HAVING", "INNER / LEFT / RIGHT / FULL JOINs", "Índices y Optimización de Consultas", "Transacciones y Llaves Foráneas"]
+            },
+            nosql: {
+                title: "Arquitectura de Datos NoSQL",
+                badge: "Backend Intro",
+                level: "Intermedio",
+                hours: "30 horas prácticas",
+                techKey: "nosql",
+                desc: "Descubre el paradigma no relacional: bases de datos orientadas a documentos (MongoDB), pares clave-valor (Redis) y grafos para alta escalabilidad.",
+                syllabus: ["Paradigmas NoSQL vs SQL", "Document Store con MongoDB", "Caching distribuido con Redis", "Estrategias de Sharding y Replicación", "Modelado de datos desnormalizados"]
+            },
+            agile: {
+                title: "Metodologías Ágiles & Scrum",
+                badge: "Methodologies",
+                level: "Avanzado",
+                hours: "15 horas prácticas",
+                techKey: "agile",
+                desc: "Perfecciona el flujo de entrega continua, ceremonias Scrum, gestión de backlogs ágiles y métricas de rendimiento (Velocity, Lead Time).",
+                syllabus: ["Manifiesto Ágil y Principios", "Ceremonias Scrum (Sprint Planning, Daily, Retro)", "Kanban y Limitación de WIP", "Estimación con Story Points", "Integración con CI/CD"]
+            }
+        };
+
+        // Questions Database
+        const QuestionBank = {
+            javascript: [
+                {
+                    category: "JS Asíncrono & Event Loop",
+                    text: "¿Cuál es la salida por consola del siguiente código?",
+                    hasCode: true,
+                    filename: "event-loop.js",
+                    code: `console.log('Start');\n\nsetTimeout(() => {\n  console.log('Timeout');\n}, 0);\n\nPromise.resolve().then(() => console.log('Promise'));\n\nconsole.log('End');`,
+                    options: [
+                        "Start, Timeout, Promise, End",
+                        "Start, End, Timeout, Promise",
+                        "Start, End, Promise, Timeout",
+                        "Start, Promise, Timeout, End"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    category: "Closures & Scope",
+                    text: "¿Qué valor retorna la función al ejecutarse?",
+                    hasCode: true,
+                    filename: "closure.js",
+                    code: `function createCounter() {\n  let count = 0;\n  return () => ++count;\n}\n\nconst c1 = createCounter();\nc1();\nconsole.log(c1());`,
+                    options: [
+                        "0",
+                        "1",
+                        "2",
+                        "undefined"
+                    ],
+                    correctIndex: 2
+                },
+                {
+                    category: "Inmutabilidad & ES6",
+                    text: "¿Cuál es el resultado de desestructurar el siguiente array con Rest operator?",
+                    hasCode: true,
+                    filename: "destructuring.js",
+                    code: `const [first, ...rest] = [10, 20, 30, 40];\nconsole.log(rest.length);`,
+                    options: [
+                        "3",
+                        "4",
+                        "1",
+                        "undefined"
+                    ],
+                    correctIndex: 0
+                },
+                {
+                    category: "Prototipos & Clases",
+                    text: "¿Cómo se define un método estático dentro de una clase ES6?",
+                    hasCode: false,
+                    options: [
+                        "class Foo { #metodo() {} }",
+                        "class Foo { static metodo() {} }",
+                        "class Foo { const metodo = () => {} }",
+                        "class Foo { final metodo() {} }"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    category: "Async / Await",
+                    text: "¿Qué sucede si una función 'async' arroja un error no capturado dentro de su cuerpo?",
+                    hasCode: false,
+                    options: [
+                        "El navegador detiene inmediatamente la ejecución de todo el script.",
+                        "Retorna una Promesa rechazada (rejected promise).",
+                        "Retorna undefined silenciosamente.",
+                        "Se convierte automáticamente en una excepción síncrona global."
+                    ],
+                    correctIndex: 1
+                }
+            ],
+            html5: [
+                {
+                    category: "Semántica Web",
+                    text: "¿Cuál es el elemento semántico adecuado para englobar contenido complementario e indirectamente relacionado con el artículo principal?",
+                    hasCode: false,
+                    options: [
+                        "<aside>",
+                        "<section>",
+                        "<div>",
+                        "<article>"
+                    ],
+                    correctIndex: 0
+                },
+                {
+                    category: "Accesibilidad (a11y)",
+                    text: "¿Qué atributo es fundamental en una imagen <img> para describir su contenido a lectores de pantalla?",
+                    hasCode: false,
+                    options: [
+                        "title",
+                        "alt",
+                        "aria-hidden='true'",
+                        "name"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    category: "Formularios HTML5",
+                    text: "¿Qué tipo de input restringe la entrada únicamente a direcciones de correo válidas y activa el teclado de email en móviles?",
+                    hasCode: false,
+                    options: [
+                        "<input type='text' format='email'>",
+                        "<input type='email'>",
+                        "<input type='mail'>",
+                        "<input type='contact'>"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    category: "SEO & Head",
+                    text: "¿Cuál es la etiqueta recomendada para definir el viewport responsive en dispositivos móviles?",
+                    hasCode: true,
+                    filename: "index.html",
+                    code: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`,
+                    options: [
+                        "Es opcional y no afecta el comportamiento responsive.",
+                        "Obligatoria para que el navegador ajuste el ancho al ancho de la pantalla del dispositivo.",
+                        "Solo sirve para desactivar el zoom.",
+                        "Solo se requiere en aplicaciones de escritorio."
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    category: "Multimedia",
+                    text: "¿Qué elemento nativo de HTML5 permite reproducir pistas de audio sin plugins externos?",
+                    hasCode: false,
+                    options: [
+                        "<sound>",
+                        "<audio controls>",
+                        "<embed-audio>",
+                        "<media type='audio'>"
+                    ],
+                    correctIndex: 1
+                }
+            ],
+            css3: [
+                {
+                    category: "CSS Grid",
+                    text: "¿Qué propiedad de CSS Grid define un layout con 3 columnas iguales y fluidas?",
+                    hasCode: true,
+                    filename: "style.css",
+                    code: `.container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n}`,
+                    options: [
+                        "repeat(3, 1fr)",
+                        "grid-columns: 33.33%",
+                        "columns: 3 auto",
+                        "flex: 3"
+                    ],
+                    correctIndex: 0
+                },
+                {
+                    category: "Flexbox",
+                    text: "¿Qué combinación de propiedades centra un elemento vertical y horizontalmente en su contenedor flex?",
+                    hasCode: false,
+                    options: [
+                        "justify-content: center; align-items: center;",
+                        "align-content: middle; justify-items: center;",
+                        "text-align: center; vertical-align: middle;",
+                        "flex-position: center;"
+                    ],
+                    correctIndex: 0
+                },
+                {
+                    category: "Custom Properties",
+                    text: "¿Cómo se invoca correctamente una variable CSS llamada '--primary-color'?",
+                    hasCode: false,
+                    options: [
+                        "$primary-color",
+                        "var(--primary-color)",
+                        "get(--primary-color)",
+                        "prop(--primary-color)"
+                    ],
+                    correctIndex: 1
+                },
+                {
+                    category: "Box Model",
+                    text: "¿Qué propiedad hace que el padding y border se incluyan dentro del ancho total especificado?",
+                    hasCode: false,
+                    options: [
+                        "box-sizing: border-box;",
+                        "box-sizing: content-box;",
+                        "padding-mode: internal;",
+                        "border-collapse: inside;"
+                    ],
+                    correctIndex: 0
+                },
+                {
+                    category: "Transiciones & GPU",
+                    text: "¿Cuáles son las propiedades CSS más eficientes para animar sin provocar layout recalculations (reflow)?",
+                    hasCode: false,
+                    options: [
+                        "width y height",
+                        "top y left",
+                        "transform y opacity",
+                        "margin y padding"
+                    ],
+                    correctIndex: 2
+                }
+            ],
+            sql: [
+                {
+                    category: "Consultas Básicas",
+                    text: "¿Qué cláusula se utiliza para filtrar grupos generados por GROUP BY?",
+                    hasCode: false,
+                    options: ["WHERE", "HAVING", "FILTER", "ORDER BY"],
+                    correctIndex: 1
+                },
+                {
+                    category: "Joins",
+                    text: "¿Qué tipo de JOIN devuelve todas las filas de la tabla izquierda aunque no haya coincidencias en la derecha?",
+                    hasCode: false,
+                    options: ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "CROSS JOIN"],
+                    correctIndex: 1
+                },
+                {
+                    category: "Integridad",
+                    text: "¿Qué restricción garantiza que los valores de una columna sean únicos y no nulos?",
+                    hasCode: false,
+                    options: ["PRIMARY KEY", "FOREIGN KEY", "CHECK", "INDEX"],
+                    correctIndex: 0
+                },
+                {
+                    category: "Funciones de Agregación",
+                    text: "¿Cuál de las siguientes es una función de agregación en SQL estándar?",
+                    hasCode: false,
+                    options: ["COUNT()", "CONCAT()", "TRIM()", "SUBSTRING()"],
+                    correctIndex: 0
+                },
+                {
+                    category: "Transacciones",
+                    text: "¿Qué comando confirma permanentemente todas las operaciones de una transacción en la base de datos?",
+                    hasCode: false,
+                    options: ["ROLLBACK", "COMMIT", "SAVEPOINT", "PERSIST"],
+                    correctIndex: 1
+                }
+            ],
+            nosql: [
+                {
+                    category: "MongoDB",
+                    text: "¿En qué formato almacena internamente MongoDB los documentos?",
+                    hasCode: false,
+                    options: ["XML", "BSON (Binary JSON)", "YAML", "CSV"],
+                    correctIndex: 1
+                },
+                {
+                    category: "Redis",
+                    text: "¿Cuál es el propósito principal de Redis en una arquitectura moderna?",
+                    hasCode: false,
+                    options: ["Almacenamiento de archivos PDF", "Caché en memoria de alta velocidad y colas", "Reemplazo de CSS", "Compilador JavaScript"],
+                    correctIndex: 1
+                },
+                {
+                    category: "CAP Theorem",
+                    text: "Según el teorema CAP, en presencia de una partición de red (P), un sistema distribuido debe elegir entre:",
+                    hasCode: false,
+                    options: ["Consistencia (C) y Disponibilidad (A)", "Velocidad y Costo", "Seguridad y Accesibilidad", "SQL y NoSQL"],
+                    correctIndex: 0
+                },
+                {
+                    category: "Modelado",
+                    text: "¿Cuándo es preferible 'anidar' documentos (embedding) en vez de referenciarlos?",
+                    hasCode: false,
+                    options: ["Cuando los datos relacionados se leen juntos con alta frecuencia y tienen relación 1 a pocos", "Cuando el documento supera los 16MB", "Cuando se requiere integridad referencial estricta", "Nunca"],
+                    correctIndex: 0
+                },
+                {
+                    category: "Indexación",
+                    text: "¿Qué sucede si no se crean índices adecuados sobre los campos de consulta en MongoDB?",
+                    hasCode: false,
+                    options: ["El servidor rechaza la consulta", "Realiza un Collection Scan completo (COLLSCAN), degradando el rendimiento", "Convierte automáticamente la base a SQL", "Genera un error 500"],
+                    correctIndex: 1
+                }
+            ],
+            agile: [
+                {
+                    category: "Scrum Roles",
+                    text: "¿Quién es el responsable de maximizar el valor del producto y gestionar el Product Backlog?",
+                    hasCode: false,
+                    options: ["Scrum Master", "Product Owner", "Tech Lead", "Stakeholder"],
+                    correctIndex: 1
+                },
+                {
+                    category: "Ceremonias",
+                    text: "¿Cuál es el objetivo principal de la Sprint Retrospective?",
+                    hasCode: false,
+                    options: ["Demostrar el incremento al cliente", "Inspeccionar cómo fue el último Sprint y planificar mejoras en procesos y equipo", "Estimar historias de usuario", "Asignar tareas individuales"],
+                    correctIndex: 1
+                },
+                {
+                    category: "Kanban",
+                    text: "¿Qué significa el principio de limitar el WIP (Work In Progress)?",
+                    hasCode: false,
+                    options: ["Restringir la cantidad de tareas en curso para evitar cuellos de botella y maximizar el flujo", "Trabajar horas extra", "Cancelar tareas no terminadas", "Hacer todo al mismo tiempo"],
+                    correctIndex: 0
+                },
+                {
+                    category: "Estimación",
+                    text: "¿Qué representan los Story Points en la estimación ágil?",
+                    hasCode: false,
+                    options: ["Horas exactas de reloj", "Una medida relativa de esfuerzo, complejidad e incertidumbre", "El salario del desarrollador", "La cantidad de líneas de código"],
+                    correctIndex: 1
+                },
+                {
+                    category: "Entrega de Valor",
+                    text: "¿Qué es un MVP (Minimum Viable Product)?",
+                    hasCode: false,
+                    options: ["Un producto completo con todas las características posibles", "La versión de un nuevo producto que permite recopilar el máximo aprendizaje validado con el menor esfuerzo", "Un prototipo que no funciona", "El código final sin pruebas"],
+                    correctIndex: 1
+                }
+            ]
+        };
+
+        // Navigation Controller
+        function navigateTo(viewName) {
+            window.scrollTo(0, 0);
+
+            document.querySelectorAll('.app-view').forEach(el => {
+                el.classList.remove('active-view');
+            });
+
+            const target = document.getElementById('view-' + viewName);
+            if (target) {
+                target.classList.add('active-view');
+                AppState.currentView = viewName;
+                window.location.hash = viewName;
+            }
+
+            const navBtnHome = document.getElementById('nav-btn-home');
+            const navBtnTest = document.getElementById('nav-btn-test');
+            const navBtnCert = document.getElementById('nav-btn-certificate');
+
+            [navBtnHome, navBtnTest, navBtnCert].forEach(btn => {
+                if (btn) {
+                    btn.className = "nav-item font-body-md text-body-md px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high/50 transition-all";
+                }
+            });
+
+            if (viewName === 'home' && navBtnHome) {
+                navBtnHome.className = "nav-item font-body-md text-body-md px-3 py-1.5 rounded-lg text-primary border-b-2 border-primary font-medium transition-all";
+            } else if (viewName === 'test' && navBtnTest) {
+                navBtnTest.className = "nav-item font-body-md text-body-md px-3 py-1.5 rounded-lg text-primary border-b-2 border-primary font-medium transition-all";
+            } else if (viewName === 'certificate' && navBtnCert) {
+                navBtnCert.className = "nav-item font-body-md text-body-md px-3 py-1.5 rounded-lg text-primary border-b-2 border-primary font-medium transition-all";
+            }
+        }
+
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash === 'test' || hash === 'certificate') {
+                navigateTo(hash);
+            } else {
+                navigateTo('home');
+            }
+            updateCertificateDOM();
+            syncDarkModeUI();
+        });
+
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash === 'test' || hash === 'certificate' || hash === 'home') {
+                navigateTo(hash);
+            }
+        });
+
+        function scrollToCourses() {
+            navigateTo('home');
+            const catalog = document.getElementById('course-catalog-section');
+            if (catalog) {
+                catalog.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Test Engine Logic
+        function goToTestStep(stepNum) {
+            window.scrollTo(0, 0);
+            document.querySelectorAll('.step-container').forEach(el => {
+                el.classList.remove('active');
+            });
+            const target = document.getElementById('test-step-' + stepNum);
+            if (target) {
+                target.classList.add('active');
+            }
+        }
+
+        function startSpecificTest(techKey) {
+            navigateTo('test');
+            initQuiz(techKey);
+        }
+
+        function initQuiz(techKey) {
+            AppState.selectedTech = techKey;
+            AppState.currentQuestionIndex = 0;
+            AppState.userAnswers = [];
+            AppState.quizStartTime = new Date();
+            AppState.remainingSeconds = (QuestionBank[techKey] || QuestionBank.javascript).length * 120;
+
+            const techLabels = {
+                javascript: "Evaluación de JavaScript",
+                html5: "Evaluación de HTML5",
+                css3: "Evaluación de CSS3",
+                sql: "Evaluación de SQL",
+                nosql: "Evaluación de NoSQL",
+                agile: "Evaluación de Agile & Scrum"
+            };
+
+            const techIcons = {
+                javascript: "javascript",
+                html5: "html",
+                css3: "css",
+                sql: "database",
+                nosql: "storage",
+                agile: "domain_disabled"
+            };
+
+            document.getElementById('quiz-tech-title').innerText = techLabels[techKey] || "Evaluación Técnica";
+            document.getElementById('quiz-tech-icon').innerHTML = `<span class="material-symbols-outlined text-primary" data-icon="${techIcons[techKey] || 'quiz'}">${techIcons[techKey] || 'quiz'}</span>`;
+
+            startTimer();
+            renderQuestion();
+            goToTestStep(2);
+        }
+
+        function startTimer() {
+            if (AppState.timerInterval) clearInterval(AppState.timerInterval);
+            
+            const timerEl = document.getElementById('quiz-timer');
+            AppState.timerInterval = setInterval(() => {
+                AppState.remainingSeconds--;
+                if (AppState.remainingSeconds <= 0) {
+                    clearInterval(AppState.timerInterval);
+                    finishQuiz();
+                    return;
+                }
+                const mins = Math.floor(AppState.remainingSeconds / 60).toString().padStart(2, '0');
+                const secs = (AppState.remainingSeconds % 60).toString().padStart(2, '0');
+                timerEl.innerHTML = `<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> ${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function renderQuestion() {
+            const questions = QuestionBank[AppState.selectedTech] || QuestionBank.javascript;
+            const q = questions[AppState.currentQuestionIndex];
+            const total = questions.length;
+
+            const percent = ((AppState.currentQuestionIndex + 1) / total) * 100;
+            document.getElementById('quiz-progress-fill').style.width = percent + '%';
+            document.getElementById('quiz-progress-text').innerText = `Pregunta ${AppState.currentQuestionIndex + 1} de ${total}`;
+            
+            const correctCount = AppState.userAnswers.filter((a, idx) => a === questions[idx].correctIndex).length;
+            document.getElementById('quiz-score-badge').innerText = `${correctCount * 20} pts`;
+
+            document.getElementById('question-category-tag').innerText = q.category;
+            document.getElementById('question-text').innerText = q.text;
+
+            const codeWrapper = document.getElementById('question-code-wrapper');
+            if (q.hasCode) {
+                codeWrapper.classList.remove('hidden');
+                document.getElementById('code-filename').innerText = q.filename || "snippet.js";
+                document.getElementById('question-code-content').innerText = q.code;
+            } else {
+                codeWrapper.classList.add('hidden');
+            }
+
+            const list = document.getElementById('quiz-options-list');
+            list.innerHTML = '';
+
+            const optionLetters = ['A', 'B', 'C', 'D'];
+            q.options.forEach((optText, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "option-card w-full text-left p-4 rounded-xl border border-outline-variant/30 bg-surface-container flex items-center gap-3 group";
+                btn.onclick = () => selectOption(optIdx);
+                
+                const selected = AppState.userAnswers[AppState.currentQuestionIndex] === optIdx;
+                if (selected) {
+                    btn.classList.add('selected');
+                }
+
+                btn.innerHTML = `
+                    <div class="w-7 h-7 rounded-full border border-outline-variant flex items-center justify-center group-hover:border-primary flex-shrink-0 text-xs font-semibold">
+                        <span>${optionLetters[optIdx]}</span>
+                    </div>
+                    <span class="font-code-md text-sm text-on-surface flex-grow">${escapeHtml(optText)}</span>
+                `;
+                list.appendChild(btn);
+            });
+
+            const nextBtn = document.getElementById('btn-next-question');
+            if (AppState.currentQuestionIndex === total - 1) {
+                nextBtn.innerHTML = `<span>Finalizar Examen</span><span class="material-symbols-outlined text-sm" data-icon="check">check</span>`;
+            } else {
+                nextBtn.innerHTML = `<span>Siguiente</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>`;
+            }
+        }
+
+        function selectOption(optIdx) {
+            AppState.userAnswers[AppState.currentQuestionIndex] = optIdx;
+            
+            const cards = document.querySelectorAll('.option-card');
+            cards.forEach((c, idx) => {
+                if (idx === optIdx) {
+                    c.classList.add('selected');
+                } else {
+                    c.classList.remove('selected');
+                }
+            });
+        }
+
+        function nextQuestion() {
+            const questions = QuestionBank[AppState.selectedTech] || QuestionBank.javascript;
+            
+            if (AppState.userAnswers[AppState.currentQuestionIndex] === undefined) {
+                showToast("Por favor selecciona una respuesta para continuar", "info");
+                return;
+            }
+
+            if (AppState.currentQuestionIndex < questions.length - 1) {
+                AppState.currentQuestionIndex++;
+                renderQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            if (AppState.timerInterval) clearInterval(AppState.timerInterval);
+
+            const questions = QuestionBank[AppState.selectedTech] || QuestionBank.javascript;
+            const total = questions.length;
+            let correct = 0;
+
+            questions.forEach((q, idx) => {
+                if (AppState.userAnswers[idx] === q.correctIndex) {
+                    correct++;
+                }
+            });
+
+            const scorePercent = Math.round((correct / total) * 100);
+            const durationSec = Math.floor((new Date() - AppState.quizStartTime) / 1000);
+            const durationMin = Math.floor(durationSec / 60).toString().padStart(2, '0');
+            const durationRemSec = (durationSec % 60).toString().padStart(2, '0');
+            const formattedTime = `${durationMin}:${durationRemSec}`;
+
+            document.getElementById('result-score-percent').innerText = `${scorePercent}%`;
+            document.getElementById('result-time-taken').innerText = formattedTime;
+
+            const techDisplayNames = {
+                javascript: "JavaScript Moderno (ES6+)",
+                html5: "HTML5 Semántico",
+                css3: "CSS3 Avanzado",
+                sql: "Fundamentos SQL",
+                nosql: "Arquitectura NoSQL",
+                agile: "Agile & Scrum"
+            };
+
+            const isPassed = scorePercent >= 60;
+            const statusBadge = document.getElementById('result-status-badge');
+            const statusText = document.getElementById('result-status-text');
+            const resultTitle = document.getElementById('result-title');
+            const feedbackMsg = document.getElementById('result-feedback-message');
+
+            if (isPassed) {
+                statusBadge.className = "inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-green-500/15 border border-green-500/30 text-green-600 dark:text-green-400 font-label-sm text-sm mb-5 font-semibold";
+                statusText.innerText = scorePercent >= 90 ? "Aprobado con Distinción" : "Evaluación Aprobada";
+                resultTitle.innerText = "¡Evaluación Completada!";
+                feedbackMsg.innerText = `¡Excelente desempeño! Has demostrado un sólido entendimiento de los conceptos evaluados en ${techDisplayNames[AppState.selectedTech]}. Tu certificado oficial está listo para generarse.`;
+            } else {
+                statusBadge.className = "inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-600 dark:text-amber-400 font-label-sm text-sm mb-5 font-semibold";
+                statusText.innerText = "Requiere Repaso";
+                resultTitle.innerText = "Buen Intento";
+                feedbackMsg.innerText = `Has obtenido ${scorePercent}%. Puedes repasar el temario del curso y volver a rendir la evaluación para certificar tus competencias.`;
+            }
+
+            const randomCode = 'DF-' + AppState.selectedTech.substring(0, 2).toUpperCase() + '-' + Math.floor(1000 + Math.random() * 9000) + '-' + Math.random().toString(36).substring(2, 5).toUpperCase();
+            
+            AppState.completedCert = {
+                studentName: AppState.studentName,
+                techName: techDisplayNames[AppState.selectedTech] || "Frontend Engineering",
+                score: scorePercent,
+                certId: randomCode,
+                date: new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })
+            };
+
+            updateCertificateDOM();
+            goToTestStep(3);
+        }
+
+        // Certificate Generation & Rendering
+        function updateCertificateDOM() {
+            document.getElementById('cert-student-name').innerText = AppState.completedCert.studentName;
+            document.getElementById('cert-tech-name').innerText = AppState.completedCert.techName;
+            document.getElementById('cert-id-code').innerText = AppState.completedCert.certId;
+            document.getElementById('cert-issue-date').innerText = AppState.completedCert.date;
+        }
+
+        function generateAndOpenCertificate() {
+            updateCertificateDOM();
+            navigateTo('certificate');
+            showToast("¡Certificado oficial generado exitosamente!", "success");
+        }
+
+        function editCertificateName() {
+            openProfileModal();
+        }
+
+        function saveStudentName() {
+            const input = document.getElementById('studentNameInput').value.trim();
+            if (input.length > 0) {
+                AppState.studentName = input;
+                AppState.completedCert.studentName = input;
+                updateCertificateDOM();
+                closeProfileModal();
+                showToast("Nombre actualizado en el certificado", "success");
+            }
+        }
+
+        function downloadOrPrintCertificate() {
+            window.print();
+        }
+
+        function copyCertLink() {
+            const url = window.location.origin + window.location.pathname + '#certificate?id=' + AppState.completedCert.certId;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast("Enlace del certificado copiado al portapapeles", "success");
+            }).catch(() => {
+                showToast("Enlace de verificación copiado", "success");
+            });
+        }
+
+        function shareOnTwitter() {
+            const text = `¡Acabo de obtener mi certificación oficial en ${AppState.completedCert.techName} en @DevForgeAcademy! 🚀 ID: ${AppState.completedCert.certId}`;
+            const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        function shareResults() {
+            copyCertLink();
+        }
+
+        function copyQuestionCode() {
+            const code = document.getElementById('question-code-content').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                showToast("Código copiado al portapapeles", "success");
+            });
+        }
+
+        function reportIssue() {
+            showToast("Gracias por tu reporte. Nuestro equipo técnico lo revisará.", "info");
+        }
+
+        // Theme and Palette Switcher
+        function toggleThemeMenu() {
+            const menu = document.getElementById('paletteMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('paletteMenu');
+            if (!e.target.closest('#paletteMenu') && !e.target.closest('button[title="Cambiar paleta de colores"]')) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        function setTheme(themeName) {
+            AppState.currentTheme = themeName;
+            document.documentElement.setAttribute('data-theme', themeName);
+            document.getElementById('paletteMenu').classList.add('hidden');
+            showToast(`Tema cambiado a: ${themeName.replace('-', ' ').toUpperCase()}`, "palette");
+        }
+
+        function toggleDarkMode() {
+            AppState.isDark = !AppState.isDark;
+            syncDarkModeUI();
+            if (AppState.isDark) {
+                showToast("Modo oscuro activado");
+            } else {
+                showToast("Modo claro activado");
+            }
+        }
+
+        function syncDarkModeUI() {
+            const html = document.documentElement;
+            const darkIcon = document.getElementById('darkIcon');
+            if (AppState.isDark) {
+                html.classList.add('dark');
+                if (darkIcon) darkIcon.innerText = "dark_mode";
+            } else {
+                html.classList.remove('dark');
+                if (darkIcon) darkIcon.innerText = "light_mode";
+            }
+        }
+
+        // Modals
+        function openCourseDetails(courseKey) {
+            const c = CourseData[courseKey];
+            if (!c) return;
+
+            const modal = document.getElementById('courseModal');
+            const content = document.getElementById('courseModalContent');
+
+            content.innerHTML = `
+                <div class="inline-block px-3 py-0.5 rounded-full bg-primary/15 text-primary font-label-sm text-xs mb-2 font-semibold">
+                    ${c.badge}
+                </div>
+                <h3 class="font-headline-md text-2xl text-on-surface font-bold mb-2">${c.title}</h3>
+                <div class="flex items-center gap-4 text-xs text-on-surface-variant mb-4">
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> ${c.hours}</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt">signal_cellular_alt</span> ${c.level}</span>
+                </div>
+                <p class="font-body-md text-sm text-on-surface-variant mb-4 leading-relaxed">${c.desc}</p>
+                <div class="mb-6">
+                    <h4 class="font-headline-md text-sm text-on-surface font-semibold mb-2">Temario Principal:</h4>
+                    <ul class="space-y-1.5 text-xs text-on-surface-variant">
+                        ${c.syllabus.map(item => `<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>${item}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="flex justify-end gap-2 pt-2 border-t border-outline-variant/20">
+                    <button onclick="closeCourseModal()" class="px-4 py-2 rounded-lg border border-outline-variant/40 text-xs text-on-surface-variant hover:bg-surface-container">Cerrar</button>
+                    <button onclick="closeCourseModal(); startSpecificTest('${c.techKey}')" class="px-5 py-2 rounded-lg bg-primary text-on-primary font-semibold text-xs hover:brightness-110 transition-all flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm" data-icon="play_arrow">play_arrow</span>
+                        Rendir Evaluación
+                    </button>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeCourseModal() {
+            document.getElementById('courseModal').classList.add('hidden');
+        }
+
+        function openProfileModal() {
+            document.getElementById('studentNameInput').value = AppState.studentName;
+            document.getElementById('profileModal').classList.remove('hidden');
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profileModal').classList.add('hidden');
+        }
+
+        function openAboutModal() {
+            const body = document.getElementById('infoModalBody');
+            body.innerHTML = `
+                <div class="flex items-center gap-3 mb-4">
+                    <img alt="DevForge Academy" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtH3cf8fWVbahFL8z1Tr-zjGs4NLurJguZ4SG7nuK-alhWDwyo4CxGcmiCr3J-karbtxINIZwIPynqW9QXFQkqR3lOkBnlW-a1jpYon_x9zn9612ssMWqYbFVU2fH2AVbv7CwdRe76ILPLKUgKM3oOmCjB1xUhz5GZc6pAtSRBD4v4TmdO55NKqiMhsrgXwHG5SbVS_qULtPZTbH8ZqkDd6GRpimoA3nwNxi3jf71tqF29vBidOEJ8">
+                    <div>
+                        <h3 class="font-headline-md text-xl text-on-surface font-bold">DevForge Academy</h3>
+                        <p class="font-label-sm text-xs text-primary">Technical Modernist Learning Platform</p>
+                    </div>
+                </div>
+                <p class="font-body-md text-sm text-on-surface-variant mb-3 leading-relaxed">
+                    DevForge Academy es un ecosistema de capacitación y certificación de estándar industrial para desarrolladores frontend. 
+                </p>
+                <p class="font-body-md text-sm text-on-surface-variant mb-4 leading-relaxed">
+                    Nuestra metodología combina evaluación rigurosa basada en código real, retroalimentación instantánea e insignias verificables para impulsar el crecimiento técnico y laboral de los profesionales de software.
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-4 text-center">
+                    <div class="bg-surface-container p-3 rounded-xl border border-outline-variant/20">
+                        <span class="font-headline-md text-xl text-primary font-bold">+15,000</span>
+                        <span class="block text-[11px] text-on-surface-variant">Estudiantes Graduados</span>
+                    </div>
+                    <div class="bg-surface-container p-3 rounded-xl border border-outline-variant/20">
+                        <span class="font-headline-md text-xl text-primary font-bold">99.4%</span>
+                        <span class="block text-[11px] text-on-surface-variant">Tasa de Aprobación Laboral</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button onclick="closeInfoModal()" class="px-5 py-2 rounded-lg bg-primary text-on-primary font-semibold text-xs hover:brightness-110">Entendido</button>
+                </div>
+            `;
+            document.getElementById('infoModal').classList.remove('hidden');
+        }
+
+        function openModal(type) {
+            const body = document.getElementById('infoModalBody');
+            const titles = {
+                privacy: "Política de Privacidad",
+                terms: "Términos de Servicio",
+                api: "Documentación de la API de Certificación",
+                support: "Soporte Técnico"
+            };
+
+            const descriptions = {
+                privacy: "En DevForge Academy nos tomamos la privacidad en serio. Toda la información académica, resultados de exámenes y datos de certificación se encuentran cifrados y protegidos según los estándares internacionales de protección de datos.",
+                terms: "El uso de la plataforma DevForge Academy otorga derecho de emisión y verificación de credenciales a estudiantes que aprueben con éxito las pruebas técnicas correspondientes.",
+                api: "Nuestra API REST y GraphQL permite a empresas y reclutadores validar instantáneamente la autenticidad de cualquier certificado mediante el código hash identificador único.",
+                support: "¿Tienes dudas con tu certificado o evaluación? Escríbenos a support@devforge.academy o consulta con nuestros instructores en vivo."
+            };
+
+            body.innerHTML = `
+                <h3 class="font-headline-md text-xl text-on-surface font-bold mb-3">${titles[type] || "Información"}</h3>
+                <p class="font-body-md text-sm text-on-surface-variant mb-6 leading-relaxed">${descriptions[type] || ""}</p>
+                <div class="text-right">
+                    <button onclick="closeInfoModal()" class="px-5 py-2 rounded-lg bg-primary text-on-primary font-semibold text-xs hover:brightness-110">Cerrar</button>
+                </div>
+            `;
+            document.getElementById('infoModal').classList.remove('hidden');
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.add('hidden');
+        }
+
+        function showToast(msg, icon = 'check_circle') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMsg.innerText = msg;
+            toastIcon.innerText = icon;
+            toastIcon.setAttribute('data-icon', icon);
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        }
+
+        function escapeHtml(string) {
+            return String(string).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+    </script>
+</body>
+</html>

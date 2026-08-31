@@ -1,0 +1,400 @@
+<!DOCTYPE html><html class="dark" lang="es" data-theme="cyber-slate"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DevForge Academy - Inicio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#1f1635",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-surface": "#e6e0e9",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#cfbcff",
+                        "tertiary": "#e7c365",
+                        "surface-container-low": "#1d1b20",
+                        "surface-bright": "#3b383e",
+                        "outline-variant": "#494551",
+                        "on-surface": "#e6e0e9",
+                        "on-tertiary": "#3e2e00",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "surface-container-lowest": "#0f0d13",
+                        "on-primary-container": "#e0d2ff",
+                        "surface-variant": "#36343a",
+                        "tertiary-container": "#c9a74d",
+                        "surface-container-high": "#2b292f",
+                        "secondary-fixed": "#e9ddff",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "background": "#141218",
+                        "on-secondary": "#342b4b",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-tertiary-container": "#503d00",
+                        "secondary": "#cdc0e9",
+                        "surface-container-highest": "#36343a",
+                        "surface": "#141218",
+                        "secondary-container": "#4d4465",
+                        "surface-container": "#211f24",
+                        "primary": "#cfbcff",
+                        "on-primary": "#381e72",
+                        "on-tertiary-fixed": "#241a00",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "primary-container": "#6750a4",
+                        "surface-tint": "#cfbcff",
+                        "outline": "#948e9c",
+                        "surface-dim": "#141218",
+                        "inverse-on-surface": "#322f35",
+                        "tertiary-fixed": "#ffdf93",
+                        "on-background": "#e6e0e9",
+                        "on-primary-fixed": "#22005d",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#bfb2da",
+                        "on-surface-variant": "#cbc4d2",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#6750a4",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "code-md": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "code-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .glass-panel {
+            background: rgba(33, 31, 36, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(73, 69, 81, 0.1);
+        }
+
+        /* Light Mode Styles */
+        html:not(.dark) body {
+            background-color: #f7f6fa !important;
+            color: #17151c !important;
+        }
+        html:not(.dark) .bg-background {
+            background-color: #f7f6fa !important;
+        }
+        html:not(.dark) .text-on-background,
+        html:not(.dark) .text-on-surface {
+            color: #17151c !important;
+        }
+        html:not(.dark) .text-on-surface-variant {
+            color: #49454f !important;
+        }
+        html:not(.dark) .bg-surface,
+        html:not(.dark) .bg-surface-container-lowest {
+            background-color: #ffffff !important;
+        }
+        html:not(.dark) .bg-surface-container-high {
+            background-color: #ede8f5 !important;
+        }
+        html:not(.dark) .bg-surface-container-highest {
+            background-color: #e4dfec !important;
+        }
+        html:not(.dark) .bg-primary {
+            background-color: #654ea3 !important;
+            color: #ffffff !important;
+        }
+        html:not(.dark) .text-primary {
+            color: #654ea3 !important;
+        }
+        html:not(.dark) .border-primary {
+            border-color: #654ea3 !important;
+        }
+        html:not(.dark) .bg-primary-container {
+            background-color: #e9ddff !important;
+            color: #22005d !important;
+        }
+        html:not(.dark) .glass-panel {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border-color: rgba(202, 195, 212, 0.6) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        html:not(.dark) nav {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-color: rgba(202, 195, 212, 0.5) !important;
+        }
+        html:not(.dark) footer {
+            background: #ffffff !important;
+            border-color: rgba(202, 195, 212, 0.5) !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 max-w-container-max mx-auto bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/10 shadow-sm">
+<div class="flex items-center gap-gutter">
+<img alt="DevForge Academy" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtH3cf8fWVbahFL8z1Tr-zjGs4NLurJguZ4SG7nuK-alhWDwyo4CxGcmiCr3J-karbtxINIZwIPynqW9QXFQkqR3lOkBnlW-a1jpYon_x9zn9612ssMWqYbFVU2fH2AVbv7CwdRe76ILPLKUgKM3oOmCjB1xUhz5GZc6pAtSRBD4v4TmdO55NKqiMhsrgXwHG5SbVS_qULtPZTbH8ZqkDd6GRpimoA3nwNxi3jf71tqF29vBidOEJ8">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tighter hidden md:block">DevForge Academy</span>
+</div>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 active:scale-95 transition-transform hover:bg-surface-container-high/50 transition-all duration-200" href="code.html">Cursos</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform hover:bg-surface-container-high/50 transition-all duration-200" href="../m_dulo_de_prueba_en_l_nea/code.html">Tests</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform hover:bg-surface-container-high/50 transition-all duration-200" href="../vista_previa_del_certificado/code.html">Certificados</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform hover:bg-surface-container-high/50 transition-all duration-200" href="../index.html">Sobre nosotros</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button onclick="toggleDarkMode()" title="Modo Claro / Oscuro" class="p-2 rounded-full hover:bg-surface-variant/50 transition-colors text-on-surface-variant active:scale-95 transition-transform">
+<span id="darkIcon" class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant/30 flex items-center justify-center ml-2">
+<img class="w-full h-full object-cover" alt="Perfil del Usuario" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClEFxcPfPjSRBYe7_9tmwFXbrjbek0M3oRw2TQm7pWiVnDtdHGD9q3ErIRdMnDV5Y2PymSyGIxoWv3rz0mxZi-ZclBcmvv7dwcWX4B2RY98eyO__mnBbWPoGtQ69MZlmQ3p_N-F9-mu4ZLcYwxueq-2YTugj9ibqX_E65UUYXm3Qqq9tRb_Ak8wFbuZ_GromdZIilX_qVIcNV1x6C5neQOhCf3m30pygtdBNAOjlxbR9QEmc5bwLjk">
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-24 pb-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col gap-10 md:gap-14 min-h-screen">
+<!-- Hero Section -->
+<section class="flex flex-col items-center justify-center text-center py-20 gap-stack-md relative overflow-hidden rounded-xl glass-panel">
+<!-- Decorative Background Element -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"></div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface relative z-10 max-w-3xl">
+                Impulsa tu Carrera como Desarrollador Frontend
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-stack-sm relative z-10">
+                Domina las tecnologías web modernas. Prepárate con cursos especializados, rinde pruebas reales y obtén certificaciones instantáneas respaldadas por la industria.
+            </p>
+<div class="flex flex-col sm:flex-row gap-stack-md mt-stack-md relative z-10">
+<a href="../m_dulo_de_prueba_en_l_nea/code.html" class="bg-primary text-on-primary font-label-sm text-label-sm px-6 py-3 rounded-lg hover:bg-primary-fixed hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(207,188,255,0.2)] inline-flex items-center justify-center">
+                    Rendir Prueba en Línea
+                </a>
+<a href="#cursos" class="border border-outline-variant text-on-surface font-label-sm text-label-sm px-6 py-3 rounded-lg hover:bg-surface-variant/50 hover:-translate-y-0.5 transition-all inline-flex items-center justify-center">
+                    Explorar Cursos
+                </a>
+</div>
+</section>
+<!-- Metrics Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:bg-surface-container-high/40 transition-colors">
+<div class="h-12 w-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">6 Cursos Especializados</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Rutas de aprendizaje enfocadas</p>
+</div>
+</div>
+<div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:bg-surface-container-high/40 transition-colors">
+<div class="h-12 w-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="shuffle">shuffle</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Pruebas Aleatorias</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Evalúa tu conocimiento real</p>
+</div>
+</div>
+<div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:bg-surface-container-high/40 transition-colors">
+<div class="h-12 w-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Certificación Instantánea</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Valida tus habilidades al instante</p>
+</div>
+</div>
+</section>
+<!-- Course Catalog -->
+<section id="cursos" class="flex flex-col gap-stack-md mt-6 md:mt-10">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-stack-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Cursos Disponibles</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Selecciona un curso para comenzar tu preparación.</p>
+</div>
+<a class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1" href="#">
+                    Ver todos <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Course Card 1: JS -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 group">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="JavaScript Moderno" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUzEdxidU8U4t8Cbpsx1Xz5SXinoInBIMFkBnZtohAxj2ykbG_27JXgBpe8x4TYwXkuDeRpmoTqcS8_CO0cL8YSzt-29kEKvM7FnxX3AwWQmXm0Pz8TMSMwtAfGx6alVtIhTYQqWSO75bfOY4rsONWniKTo3j7_GSlMXrr6QlHnTpInHcpU_HjFJ9mW1jT-Dmd0Ln3D8klDhLquky126aVStSC9UX4mBy68puCs8Q-yU_q3niIoGsJ">
+<div class="absolute top-stack-sm left-stack-sm bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-primary border border-outline-variant/20">
+                            Frontend
+                        </div>
+</div>
+<div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">JavaScript Moderno</h3>
+<div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 40h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt">signal_cellular_alt</span> Intermedio</span>
+</div>
+<div class="mt-auto pt-stack-sm flex items-center justify-between">
+<span class="font-code-md text-code-md text-tertiary">es6+ / dom / async</span>
+<a href="../m_dulo_de_prueba_en_l_nea/code.html" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">Rendir Test <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+</div>
+<!-- Course Card 2: HTML5 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 group">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="HTML5 Semántico" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkpdx74Z5xVqbCr-nD8CEF35EQxgfoF1MdKboz_FiV2_F12HhmDGFGBn3vluf2tOsblK1X9gPXrd0KZJtQSsev1_Xn0Ak4cNAUhMivrnVidgsV387TQGcVsVu76QCplgyLgeNBZsNTQygGWbIuoBbB1IDiHPXyzxFxcisc9S8WZG5bMM4nG45CrctaQq-yGoBZAJfI9pSIVsocTNkUsmpmE9j_zLPyC-JAyp574yKDxcfOaU_P0m-n">
+<div class="absolute top-stack-sm left-stack-sm bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-primary border border-outline-variant/20">
+                            Frontend
+                        </div>
+</div>
+<div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">HTML5 Semántico</h3>
+<div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 20h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt_1_bar">signal_cellular_alt_1_bar</span> Principiante</span>
+</div>
+<div class="mt-auto pt-stack-sm flex items-center justify-between">
+<span class="font-code-md text-code-md text-tertiary">a11y / seo / forms</span>
+<a href="../m_dulo_de_prueba_en_l_nea/code.html" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">Rendir Test <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+</div>
+<!-- Course Card 3: CSS3 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 group">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="CSS3 Avanzado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCMw90tYqy_Xrrk8cUGlIVxDDSxgoMKQeh_k98EOAl_kfSdwM5rY1r7g50QL3cXTD3nTBLx1vgoK5wqNaudgspAKWkmZ0dXHMU5MoCUvEwFW2HmDINPY1js3NSC_bMu4Jym41ay68hydZtDTPYEp45KSDHlkKS7diWoU6GBq0c_baHRZSFqlrM6vffw9MrmoyBIQsf75kZ-PbaV9ubvbxympv5dujU2v2BJb-0hmNK6zvRmzU32pp9">
+<div class="absolute top-stack-sm left-stack-sm bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-primary border border-outline-variant/20">
+                            Frontend
+                        </div>
+</div>
+<div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">CSS3 Avanzado</h3>
+<div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 35h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt">signal_cellular_alt</span> Intermedio</span>
+</div>
+<div class="mt-auto pt-stack-sm flex items-center justify-between">
+<span class="font-code-md text-code-md text-tertiary">flex / grid / anim</span>
+<a href="../m_dulo_de_prueba_en_l_nea/code.html" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">Rendir Test <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+</div>
+<!-- Course Card 4: SQL -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 group">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="Fundamentos SQL" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA86gNM4cEzNlYtPg7QfN6equQdRgzwCrZVeyq98CDutAcnOtQhlOrb5u1FxS-C_EQXNWQr08it7spELrBwIHRJPD-aGaqARB0qXkOkwG2bFtMvwdI8mACztE71iyGvnHJkooGHQkCPbOdmDR5QD4aFKt_vIFUoaWsn6mZIXEQm12bu-QXir2lRrTUGlyiEI0Dcc0py1QZ15fBPwiq4_2W3tDmH2L-LvAIRe2o0IOojwOsipqn1oscc">
+<div class="absolute top-stack-sm left-stack-sm bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-secondary border border-outline-variant/20">
+                            Backend
+                        </div>
+</div>
+<div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Fundamentos SQL</h3>
+<div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 25h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt_2_bar">signal_cellular_alt_2_bar</span> Principiante</span>
+</div>
+<div class="mt-auto pt-stack-sm flex items-center justify-between">
+<span class="font-code-md text-code-md text-tertiary">queries / joins / views</span>
+<a href="../m_dulo_de_prueba_en_l_nea/code.html" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">Rendir Test <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+</div>
+<!-- Course Card 5: NoSQL -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 group">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="Arquitectura NoSQL" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV0f3wWdr_W0JM8FgkDV7JyaNunI5YvbR0K6KT3T5pqGLQx_Nw4svzBv-X0kGVZh0eKdn0adM4qDpqWKvxRir0u1q3Z9JIHdmO0n2WgBWtqC0_1BB3jkaUpWrDH2XdbufxzyPgZjGqIIdfOBzqOTXSfHV3jVVpZieFPeGyILSBJQ6-ddBuF_albJo3acfUoAPdysyxQLdtJeu_jiz93xu3F2SFAKXBDhdWK-M2y3ckZhDpgmMc3vtB">
+<div class="absolute top-stack-sm left-stack-sm bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-secondary border border-outline-variant/20">
+                            Backend
+                        </div>
+</div>
+<div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Arquitectura NoSQL</h3>
+<div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 30h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt">signal_cellular_alt</span> Intermedio</span>
+</div>
+<div class="mt-auto pt-stack-sm flex items-center justify-between">
+<span class="font-code-md text-code-md text-tertiary">docs / mongo / redis</span>
+<a href="../m_dulo_de_prueba_en_l_nea/code.html" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">Rendir Test <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+</div>
+<!-- Course Card 6: Agile -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 group">
+<div class="h-48 bg-surface-container-highest relative overflow-hidden">
+<img alt="Agile &amp; Scrum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMwiprmzmfW5Tk1geL0_XZiZYyi24qzqXyQm-kHUWrZtcwd0UpmEVP3SMx4t9x4fzGer4SIrsLEylCAxzmNksdnaK2pmxSYvXcnX2tOsq0YVEUxnEmLZbOO6mS9PK23MGgWm76yQCn212YR4Xpz7AWbfV7JfHKVP76x0jbL4woxQw0vy024kGtqzT_I19h2eNFbu_05z1m_9LqwJyE-bU5JRNg6GpBOMmDp05dGrtgIj-YyzVx2j-x">
+<div class="absolute top-stack-sm left-stack-sm bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full font-label-sm text-label-sm text-tertiary border border-outline-variant/20">
+                            Metodologías
+                        </div>
+</div>
+<div class="p-stack-md flex flex-col flex-grow gap-stack-sm">
+<h3 class="font-headline-md text-headline-md text-on-surface">Agile &amp; Scrum</h3>
+<div class="flex items-center gap-stack-md font-body-md text-body-md text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 15h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt_3_bar">signal_cellular_alt_3_bar</span> Avanzado</span>
+</div>
+<div class="mt-auto pt-stack-sm flex items-center justify-between">
+<span class="font-code-md text-code-md text-tertiary">sprints / kanban / flow</span>
+<a href="../m_dulo_de_prueba_en_l_nea/code.html" class="font-label-sm text-label-sm text-on-surface hover:text-primary transition-colors flex items-center gap-1">Rendir Test <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/10 mt-auto">
+<div class="flex flex-col items-center md:items-start gap-stack-sm">
+<span class="font-headline-md text-headline-md text-on-surface">DevForge Academy</span>
+<span class="font-label-sm text-label-sm text-secondary">© 2024 DevForge Academy. Engineered for Frontend Excellence.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Politica de privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Terminos de servicio</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">API Docs</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Contact Support</a>
+</div>
+</footer>
+<script>
+    function toggleDarkMode() {
+        const html = document.documentElement;
+        const darkIcon = document.getElementById('darkIcon');
+        html.classList.toggle('dark');
+        if (darkIcon) {
+            darkIcon.innerText = html.classList.contains('dark') ? 'dark_mode' : 'light_mode';
+        }
+    }
+</script>
+</body></html>

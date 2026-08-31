@@ -1,0 +1,322 @@
+<!DOCTYPE html><html class="dark" lang="es" data-theme="cyber-slate"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Certificate Preview - DevForge Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#1f1635",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-surface": "#e6e0e9",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#cfbcff",
+                        "tertiary": "#e7c365",
+                        "surface-container-low": "#1d1b20",
+                        "surface-bright": "#3b383e",
+                        "outline-variant": "#494551",
+                        "on-surface": "#e6e0e9",
+                        "on-tertiary": "#3e2e00",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "surface-container-lowest": "#0f0d13",
+                        "on-primary-container": "#e0d2ff",
+                        "surface-variant": "#36343a",
+                        "tertiary-container": "#c9a74d",
+                        "surface-container-high": "#2b292f",
+                        "secondary-fixed": "#e9ddff",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "background": "#141218",
+                        "on-secondary": "#342b4b",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-tertiary-container": "#503d00",
+                        "secondary": "#cdc0e9",
+                        "surface-container-highest": "#36343a",
+                        "surface": "#141218",
+                        "secondary-container": "#4d4465",
+                        "surface-container": "#211f24",
+                        "primary": "#cfbcff",
+                        "on-primary": "#381e72",
+                        "on-tertiary-fixed": "#241a00",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "primary-container": "#6750a4",
+                        "surface-tint": "#cfbcff",
+                        "outline": "#948e9c",
+                        "surface-dim": "#141218",
+                        "inverse-on-surface": "#322f35",
+                        "tertiary-fixed": "#ffdf93",
+                        "on-background": "#e6e0e9",
+                        "on-primary-fixed": "#22005d",
+                        "on-error": "#690005",
+                        "on-secondary-container": "#bfb2da",
+                        "on-surface-variant": "#cbc4d2",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#6750a4",
+                        "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Space Grotesk"],
+                        "code-md": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Space Grotesk"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "code-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["13px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .glass-panel {
+            background: rgba(33, 31, 36, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 142, 156, 0.1);
+        }
+
+        .cert-glow {
+            box-shadow: 0 0 40px rgba(207, 188, 255, 0.1);
+        }
+
+        /* Light Mode Styles */
+        html:not(.dark) body {
+            background-color: #f7f6fa !important;
+            color: #17151c !important;
+        }
+        html:not(.dark) .bg-background {
+            background-color: #f7f6fa !important;
+        }
+        html:not(.dark) .text-on-background,
+        html:not(.dark) .text-on-surface {
+            color: #17151c !important;
+        }
+        html:not(.dark) .text-on-surface-variant {
+            color: #49454f !important;
+        }
+        html:not(.dark) .bg-surface,
+        html:not(.dark) .bg-surface-container-lowest {
+            background-color: #ffffff !important;
+        }
+        html:not(.dark) .bg-surface-container-high {
+            background-color: #ede8f5 !important;
+        }
+        html:not(.dark) .bg-surface-container-highest {
+            background-color: #e4dfec !important;
+        }
+        html:not(.dark) .bg-surface-container {
+            background-color: #f3effa !important;
+        }
+        html:not(.dark) .bg-primary {
+            background-color: #654ea3 !important;
+            color: #ffffff !important;
+        }
+        html:not(.dark) .text-primary {
+            color: #654ea3 !important;
+        }
+        html:not(.dark) .border-primary {
+            border-color: #654ea3 !important;
+        }
+        html:not(.dark) .glass-panel {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border-color: rgba(202, 195, 212, 0.6) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        html:not(.dark) nav {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-color: rgba(202, 195, 212, 0.5) !important;
+        }
+        html:not(.dark) footer {
+            background: #ffffff !important;
+            border-color: rgba(202, 195, 212, 0.5) !important;
+        }
+
+        @media print {
+            nav, footer, .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16 max-w-container-max mx-auto bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/10 shadow-sm">
+<div class="flex items-center gap-stack-md">
+<a href="../devforge_academy_inicio/code.html" class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">DevForge Academy</a>
+<div class="hidden md:flex gap-stack-sm ml-stack-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-high/50 transition-all duration-200 px-stack-sm py-unit rounded-lg active:scale-95 transition-transform" href="../devforge_academy_inicio/code.html">Cursos</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-high/50 transition-all duration-200 px-stack-sm py-unit rounded-lg active:scale-95 transition-transform" href="../m_dulo_de_prueba_en_l_nea/code.html">Tests online</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md hover:bg-surface-container-high/50 transition-all duration-200 px-stack-sm py-unit rounded-lg active:scale-95 transition-transform" href="code.html">Certificados</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md hover:bg-surface-container-high/50 transition-all duration-200 px-stack-sm py-unit rounded-lg active:scale-95 transition-transform" href="../devforge_academy_inicio/code.html">Sobre nosotros</a>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<button onclick="toggleDarkMode()" title="Modo Claro / Oscuro" class="text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform p-unit rounded-full hover:bg-surface-container-high/50"><span id="darkIcon" class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span></button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant/20 ml-stack-sm cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0eYPnSj88eop0NtqKPaXA5fLfGxeJeP5qhv-g99lFeWC9k8YPegguD5ye5qOmyV8_aINYaX1EE-o-IDCRsp936mgPFvUy6wvUi4A6ohKw9was-kFEV91zSPKLEHz-2xfU56aohQ2kQsFvDuhIAAlMR-dliQbfeeAz-O5aP9SmveUIADuYb8RffO13JrKigzd89yJAdO-uHWcM7-9AthJ6V2OeQ1Gt25M_AqvnpbJrrgEMpj7l-pXM">
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow pt-24 pb-stack-lg px-margin-mobile md:px-margin-desktop flex flex-col items-center justify-center relative overflow-hidden">
+<!-- Background Decorative Elements -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="w-full max-w-5xl z-10">
+<!-- Header Section -->
+<div class="mb-stack-lg text-center md:text-left flex flex-col md:flex-row justify-between items-end gap-stack-md">
+<div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-unit">Certificado de finalización</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Consulta y descarga tu credencial oficial.</p>
+</div>
+<div class="flex gap-stack-sm w-full md:w-auto">
+<button onclick="window.print()" class="flex-1 md:flex-none flex items-center justify-center gap-unit bg-primary text-on-primary font-label-sm text-label-sm px-stack-md py-stack-sm rounded-lg hover:translate-y-[-2px] hover:shadow-lg transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                        Descargar / Imprimir
+                    </button>
+</div>
+</div>
+<!-- Certificate Frame (16:9 Aspect Ratio Container) -->
+<div class="relative w-full aspect-video bg-surface-container rounded-xl overflow-hidden glass-panel cert-glow p-1 md:p-2 group">
+<!-- Inner Certificate Border -->
+<div class="w-full h-full border border-primary/20 rounded-lg relative overflow-hidden bg-[#0a0a0f]">
+<!-- Certificate Background Pattern (Subtle grid) -->
+<div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#cfbcff 1px, transparent 1px); background-size: 24px 24px;"></div>
+<!-- Decorative Corner Accents (Cyan/Cobalt inspired) -->
+<div class="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-[#00d2ff]/30 rounded-tl-lg pointer-events-none"></div>
+<div class="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-[#00d2ff]/30 rounded-br-lg pointer-events-none"></div>
+<!-- Certificate Content -->
+<div class="relative z-10 w-full h-full flex flex-col items-center justify-between py-[5%] px-[10%] text-center">
+<!-- Top: Logo & Title -->
+<div class="flex flex-col items-center gap-stack-sm">
+<img alt="DevForge Academy Logo" class="w-16 h-16 md:w-24 md:h-24 object-contain filter drop-shadow-[0_0_8px_rgba(207,188,255,0.3)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtH3cf8fWVbahFL8z1Tr-zjGs4NLurJguZ4SG7nuK-alhWDwyo4CxGcmiCr3J-karbtxINIZwIPynqW9QXFQkqR3lOkBnlW-a1jpYon_x9zn9612ssMWqYbFVU2fH2AVbv7CwdRe76ILPLKUgKM3oOmCjB1xUhz5GZc6pAtSRBD4v4TmdO55NKqiMhsrgXwHG5SbVS_qULtPZTbH8ZqkDd6GRpimoA3nwNxi3jf71tqF29vBidOEJ8">
+<h2 class="font-headline-md text-[20px] md:text-headline-md text-primary tracking-widest uppercase mt-stack-sm">Certificado de finalización</h2>
+</div>
+<!-- Middle: Recipient & Course -->
+<div class="flex flex-col items-center gap-stack-md">
+<p class="font-body-md text-[14px] md:text-body-md text-on-surface-variant">Se certifica a:</p>
+<h3 class="font-display-lg-mobile md:font-display-lg text-[28px] md:text-display-lg text-on-surface font-bold">Alex Mercer</h3>
+<div class="w-16 h-[1px] bg-primary/30 my-unit"></div>
+<p class="font-body-lg text-[16px] md:text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                                Por haber aprobado satisfactoriamente la evaluación técnica en <span class="text-tertiary font-bold">JavaScript</span>.
+                            </p>
+</div>
+<!-- Bottom: Metadata & Signatures -->
+<div class="w-full flex justify-between items-end mt-stack-lg">
+<div class="flex flex-col items-start text-left">
+<p class="font-code-md text-[10px] md:text-[12px] text-on-surface-variant/70">ID: DF-JS-8472-A9F</p>
+<p class="font-code-md text-[10px] md:text-[12px] text-on-surface-variant/70">Emitido: 24 Octubre 2024</p>
+</div>
+<div class="flex flex-col items-center border-t border-outline-variant/30 pt-unit min-w-[120px] md:min-w-[200px]">
+<div class="font-headline-md text-[16px] md:text-[20px] text-primary/80 signature-font mb-unit" style="font-family: &quot;Space Grotesk&quot;, sans-serif; font-style: italic;">Sarah J. Connor</div>
+<p class="font-label-sm text-[8px] md:text-label-sm text-on-surface-variant uppercase tracking-widest">Lead Instructor</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Additional Details / Metadata below frame -->
+<div class="mt-stack-lg grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:-translate-y-1 transition-transform duration-200">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Status</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold text-[#00d2ff]">Verificado Oficialmente</p>
+</div>
+</div>
+<div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:-translate-y-1 transition-transform duration-200">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Carga Horaria</p>
+<p class="font-body-md text-body-md text-on-surface font-semibold">120 Horas</p>
+</div>
+</div>
+<div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:-translate-y-1 transition-transform duration-200">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Compartir</p>
+<div class="flex gap-stack-sm mt-unit">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]" data-icon="link">link</span></button>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center no-print">
+<a href="../devforge_academy_inicio/code.html" class="px-6 py-2.5 rounded-lg border border-outline-variant/40 text-on-surface-variant hover:text-on-surface text-sm transition-colors inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="home">home</span>
+Volver a la Página Principal
+</a>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full py-stack-lg px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-gutter bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/10">
+<div class="font-headline-md text-headline-md text-on-surface">
+            © 2024 DevForge Academy. Engineered for Frontend Excellence.
+        </div>
+<div class="flex flex-wrap gap-stack-md items-center justify-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Politica de privacidad</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Terminos de servicio</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">API Docs</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-opacity duration-200" href="#">Contact Support</a>
+</div>
+</footer>
+<script>
+    function toggleDarkMode() {
+        const html = document.documentElement;
+        const darkIcon = document.getElementById('darkIcon');
+        html.classList.toggle('dark');
+        if (darkIcon) {
+            darkIcon.innerText = html.classList.contains('dark') ? 'dark_mode' : 'light_mode';
+        }
+    }
+</script>
+</body></html>

@@ -226,7 +226,8 @@
         }
 
         .app-view.active-view {
-            display: block !important;
+            display: flex !important;
+            flex-direction: column;
             opacity: 1;
         }
 
@@ -352,7 +353,7 @@
         <!-- ========================================== -->
         <section id="view-home" class="app-view active-view flex flex-col gap-10 md:gap-14">
             <!-- Hero Section -->
-            <div class="flex flex-col items-center justify-center text-center py-12 md:py-16 px-6 gap-stack-md relative overflow-hidden rounded-2xl glass-panel">
+            <div class="flex flex-col items-center justify-center text-center py-12 md:py-16 px-6 gap-stack-md relative overflow-hidden rounded-2xl glass-panel mb-8 md:mb-12">
                 <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-neo-mint/5 pointer-events-none"></div>
                 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface relative z-10 max-w-3xl leading-tight">
                     Impulsa tu Carrera como Desarrollador Frontend
@@ -373,7 +374,7 @@
             </div>
 
             <!-- Metrics Bento -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-8 md:mb-12">
                 <div class="glass-panel p-stack-md rounded-xl flex items-center gap-stack-md hover:bg-surface-container-high transition-all hover:-translate-y-1">
                     <div class="h-12 w-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0 shadow-sm">
                         <span class="material-symbols-outlined text-2xl" data-icon="library_books">library_books</span>
